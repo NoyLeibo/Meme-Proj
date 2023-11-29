@@ -19,22 +19,23 @@ var gImgs = [
   { id: 15, url: `imgs/${15}.jpg`, keywords: ["funny", "cat"] },
   { id: 16, url: `imgs/${16}.jpg`, keywords: ["funny", "cat"] },
   { id: 17, url: `imgs/${17}.jpg`, keywords: ["funny", "cat"] },
-  { id: 18, url: `imgs/${18}.jpg`, keywords: ["funny", "cat"] },
-];
+  { id: 18, url: `imgs/${18}.jpg`, keywords: ["funny", "cat"] },]
+
 var gMainGallery = true
 
-// var gMeme = {
-//   selectedImgId: 5,
-//   selectedLineIdx: 0,
-//   lines: [{ txt: "I sometimes eat Falafel", size: 20, color: "red" }],
-// };
+var gMeme = {
+  selectedImgId: 5,
+  selectedLineIdx: 0,
+  lines: [{ txt: "I sometimes eat Falafel", size: 20, color: "red" }],
+};
 // var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 };
 
 function getImgs() {
   return gImgs
 }
 
-function displayGallery(){
+function displayGallery(imgId){
+    gMeme.selectedImgId = imgId
     changeMainGallery()
 }
 

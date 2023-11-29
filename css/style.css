@@ -1,13 +1,17 @@
+@import url("./fonts.css");
+
 body {
     margin: 0;
     background-color: #22252C;
     margin-left: 20px;
     margin-right: 20px;
+    font-size: 1rem;
 }
 
 header {
     display: flex;
     justify-content: space-around;
+    border-radius: 50px;
     align-items: center;
     height: 76px;
     margin: 20px auto; /* Center the header */
@@ -20,26 +24,42 @@ header {
 }
 
 .logo {
-    width: 59px;
-    height: 17px;
+    font-size: 1.625rem;
+    font-family: poppinsRegular;
     color: white;
     text-align: center;
     padding: 10px;
 }
 
 .main-nav a {
+    font-size: 1.625rem;
     text-decoration: none;
     color: black;
     padding: 10px;
 }
 
 .main-gallery{
-    display: none;
+    /* display: none; display none if you need */
     background-color: #383B42;
+    border-radius: 50px;
+}
+
+.imgs{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    align-items: center;
+    justify-items: center;
+    grid-auto-flow: dense;
+    gap:10px;
+}
+
+.imgs img{
+    width: 100%;
 }
 
 .meme{
     background-color: #383B42;
+    /* display: none; display none if you need */
 }
 
 .search-container {

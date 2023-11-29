@@ -1,0 +1,17 @@
+/* poppins */
+@font-face {
+    font-family: poppinsLight;
+    src: url(./fonts/Poppins-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: poppinsRegular;
+    src: url(./fonts/Poppins-Regular.ttf);
+}
+
+/* impact */
+
+@font-face {
+    font-family: myImpact;
+    src: url(./fonts/impact.ttf);
+}
