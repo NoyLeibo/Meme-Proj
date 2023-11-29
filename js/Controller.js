@@ -23,5 +23,8 @@ function onImgClick(imgId){
 function onRenderMeme(imgId){
     coverCanvasWithImg(imgId)
     // let elMeme = document.querySelector('.meme')
+}
 
+function onInput(msg){
+    drawText(msg.value)
 }

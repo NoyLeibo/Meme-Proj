@@ -34,7 +34,7 @@ header {
 .main-nav a {
     font-size: 1.625rem;
     text-decoration: none;
-    color: black;
+    color: white;
     padding: 10px;
 }
 
@@ -50,16 +50,65 @@ header {
     align-items: center;
     justify-items: center;
     grid-auto-flow: dense;
-    gap:10px;
+    gap: 21px;
+}
+
+.logo-container .logo span{
+    color:black;
 }
 
 .imgs img{
     width: 100%;
+    border-radius: 50px;
+
 }
 
 .meme{
-    background-color: #383B42;
     /* display: none; display none if you need */
+    border-radius: 50px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+.edit-meme{
+    display: grid;
+    justify-content: center;
+}
+
+.edit-meme button{
+
+}
+
+.fa-solid{
+    background: rgb(0, 195, 255);
+    width: 40px;
+    height: 40px;
+}
+
+#add-line{}
+
+#remove-line{}
+
+#text1{
+    border-radius: 50px;
+    width: 350px;
+    height: 40px;
+}
+
+.meme canvas {
+    background-color: #383B42;
+    border-radius: 50px;
+
+    max-width: 100%; /* Set a maximum width */
+    max-height: 100%; /* Set a maximum height */
+    display: block;
+}
+
+.meme .edit-meme{
+    border-radius: 50px;
+    background-color: #383B42;
+    width: 528px;
+    height: 549px;
 }
 
 .search-container {
@@ -71,7 +120,7 @@ header {
     padding: 10px 40px 10px 15px; /* Adjusted padding to accommodate the search icon */
     width: 300px;
     border: 1px solid #ddd;
-    border-radius: 20px;
+    border-radius: 50px;
     outline: none;
     font-size: 16px;
     background: #22252C url('https://img.icons8.com/ios/50/000000/search--v1.png') no-repeat right 15px center; /* URL to your search icon */

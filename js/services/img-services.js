@@ -22,6 +22,8 @@ var gImgs = [
   { id: 18, url: `imgs/${18}.jpg`, keywords: ["funny", "cat"] },]
 
 var gMainGallery = true
+var gElCanvas = document.querySelector('canvas')
+var gElCtx = gElCanvas.getContext('2d')
 
 var gMeme = {
   selectedImgId: 5,
