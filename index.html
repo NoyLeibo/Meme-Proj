@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>my-meme</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body onload="onInit()">
+    <header>
+      <div class="logo-container">
+        <div class="logo">Logo<span>.</span></div>
+      </div>
+      <nav class="main-nav">
+        <a href="#">Gallery</a>
+        <a href="#">Memes</a>
+        <a href="#">About</a>
+      </nav>
+    </header>
+    <div class="main-gallery">
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search">
+        </div>
+        <div class="imgs"></div>
+    </div>
+    <div class="meme">
+        <canvas width="500px" height="500px"></canvas>
+    </div>
+
+    <!-- <script src="js/mainCanvas.js"></script> -->
+    <!-- <script src="js/mainCanvas.js"></script> -->
+    <script src="js/services/img-services.js"></script>
+    <script src="js/Controller.js"></script>
+  </body>
+</html>

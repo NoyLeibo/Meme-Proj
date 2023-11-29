@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    background-color: #22252C;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 76px;
+    margin: 20px auto; /* Center the header */
+    background: linear-gradient(90deg, rgba(15,155,180,1) 0%, rgba(48,187,114,1) 50%);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 59px;
+    height: 17px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+
+.main-gallery{
+    display: none;
+    background-color: #383B42;
+}
+
+.meme{
+    background-color: #383B42;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    margin: 10px;
+    padding: 10px 40px 10px 15px; /* Adjusted padding to accommodate the search icon */
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    background: #22252C url('https://img.icons8.com/ios/50/000000/search--v1.png') no-repeat right 15px center; /* URL to your search icon */
+    background-size: 20px 20px;
+}
