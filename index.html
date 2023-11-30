@@ -30,7 +30,7 @@
     <div class="meme">
       <canvas width="500px" height="500px"></canvas>
       <div class="edit-meme">
-        <input type="text" id="text1" oninput="onInput(event)" maxlength="20" />
+        <input type="text" id="text1" oninput="onInput(this)" maxlength="20" />
 
         <div class="buttons-undertext">
           <input type="file" id="file-upload" name="file-upload" accept="image/*" style="display:none;"/>
@@ -40,12 +40,17 @@
           <button class="remove-line" onclick="onRemoveLine()"><img src="/imgs/trash.png" alt="" class="meme-btns"></button>
         </div>
 
-        <!-- <div class="sticker-container">
+        <div class="sticker-container">
           <p>👶</p>
           <p>🤨</p>
           <p>🤯</p>
           <p>😐</p>
-        </div> -->
+        </div>
+        <a href="#" class="btn download" onclick="downloadImg(this)" download="my-img.jpg">Download</a>
+
+        <button class="btn share" onclick="onUploadImg()">
+            Share
+        </button>
       </div>
     </div>
 
