@@ -7,21 +7,31 @@ function onInit() {
 function onRenderGallery() {
   const imgs = getImgs();
   let elImgs = document.querySelector(".imgs");
-
-  let strHtml = imgs
-    .map((img) => {
+  let strHtml = imgs.map((img) => {
       return `<img onclick="onImgClick(${img.id})" src="${img.url}">`;
     })
     .join("");
   elImgs.innerHTML = strHtml;
 }
 
-function downloadImg(elLink) {
+function onAddEmoji(elEmoji){
+    addEmoji(elEmoji.src)
+}
+
+function onUploadImg() {
+    UploadImg()
+}
+
+function onDownloadImg(elLink) {
   const imgContent = gElCanvas.toDataURL("image/jpeg"); // image/jpeg the default format
   elLink.href = imgContent;
 }
 
 function onImgClick(imgId) {
+    let elEditMeme = document.querySelector('.edit-meme')
+    elEditMeme.style.display = 'block'
+    let canvas = document.getElementById('canvas');
+    canvas.style.display = 'block';
   displayGallery(imgId);
   onRenderMeme();
 }

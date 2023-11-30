@@ -1,87 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>my-meme</title>
-    <script
-      src="https://kit.fontawesome.com/66e93cc52e.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/66e93cc52e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css" />
-  </head>
+</head>
 
-  <body onload="onInit()">
+<body onload="onInit()">
+
     <header>
-      <div class="logo-container">
-        <div class="logo">Logo<span>.</span></div>
-      </div>
-      <nav class="main-nav">
-        <a href="#">Gallery</a>
-        <a href="#">Memes</a>
-        <a href="#">About</a>
-      </nav>
+        <div class="logo-container">
+            <div class="logo">Logo<span>.</span></div>
+        </div>
+        <nav class="main-nav">
+            <a href="#">Gallery</a>
+            <a href="#">Memes</a>
+            <a href="#">About</a>
+        </nav>
     </header>
 
     <main class="main-gallery">
-      <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search" />
-      </div>
-      <div class="imgs"></div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search" />
+        </div>
+        <div class="imgs"></div>
     </main>
 
     <div class="meme">
-      <canvas width="500px" height="500px"></canvas>
-      <div class="edit-meme">
-        <input type="text" id="text1" oninput="onInput(this)" maxlength="20" />
+        <canvas id="canvas"width="500px" height="500px" style="display: none;"></canvas>
 
-        <div class="buttons-undertext">
-          <input
-            type="file"
-            id="file-upload"
-            name="file-upload"
-            accept="image/*"
-            style="display: none"
-          />
-          <label onclick="onImgInput(event)" id="file-upload" for="file-upload"
-            ><img src="/imgs/upload.png" alt="" class="meme-btns upload"
-          /></label>
+        <div class="edit-meme">
+            <input type="text" id="text1" oninput="onInput(this)" maxlength="20" value=""/>
 
-          <button class="add-line" onclick="onAddLine()">
-            <img src="/imgs/plus.png" alt="" class="meme-btns" />
-          </button>
-          <button class="remove-line" onclick="onRemoveLine()">
-            <img src="/imgs/trash.png" alt="" class="meme-btns" />
-          </button>
-        </div>
+            <div class="buttons-undertext">
+                <input type="file" id="file-upload" name="file-upload" accept="image/*" style="display: none" />
+                <label onclick="onImgInput(event)" id="file-upload" for="file-upload">
+                    <img src="/imgs/upload.png" alt="" class="upload" />
+                </label>
 
-        <div class="text-edit-container">
-          <img src="/imgs/Rectangle text edit.png" alt="Sticker Image">
+                    <img src="/imgs/plus.png" alt="" class="plus-btn" onclick="onAddLine()" />
+                    <img src="/imgs/trash.png" alt="" class="trash-btn" onclick="onRemoveLine()"/>
+            </div>
 
-        <div class="sticker-container">
-          <img src="/imgs/Rectangle%203%20copie.png" alt="Sticker Image">
-          <div class="emoji-overlay">
-              <img src="/imgs/Emoji1.png">
-              <img src="/imgs/Emoji2.png">
-              <img src="/imgs/Emoji3.png">
-              <img src="/imgs/Emoji4.png" >
+            <div class="text-edit-container">
+                <img src="/imgs/Rectangle text edit.png" alt="Sticker Image">
+            </div>
+
+            <div class="sticker-container">
+                <img src="/imgs/Rectangle%203%20copie.png" alt="Sticker Image">
+                <div class="emoji-overlay">
+                    <img src="/imgs/Emoji1.png" onclick="onAddEmoji(this)">
+                    <img src="/imgs/Emoji2.png" onclick="onAddEmoji(this)">
+                    <img src="/imgs/Emoji3.png" onclick="onAddEmoji(this)">
+                    <img src="/imgs/Emoji4.png" onclick="onAddEmoji(this)">
+                </div>
+            </div>
+            <div class="download-share">
+            <a href="#" class="btn share" onclick="onUploadImg()">
+                <img class="share-emoji" src="/imgs/downloadEmoji.png" alt="Share Emoji">
+                Share
+            </a>
+
+            <a href="#" class="btn download" onclick="onDownloadImg(this)" download="my-img.jpg">
+                <img class="download-emoji" src="/imgs/downloadEmoji.png" alt="Download Emoji">
+                Download
+            </a>
           </div>
-      </div>
-      <a href="#" class="btn share" onclick="onUploadImg()">
-        <img class="share-emoji" src="/imgs/downloadEmoji.png" alt="Share Emoji">
-        Share
-      </a>
-
-      <a href="#" class="btn download" onclick="downloadImg(this)" download="my-img.jpg">
-        <img class="download-emoji" src="/imgs/downloadEmoji.png" alt="Download Emoji">
-        Download
-      </a>
-      </div>
-    </div>
+        </div>
 
     <!-- <script src="js/mainCanvas.js"></script> -->
     <script src="js/services/img-services.js"></script>
     <script src="js/services/meme-services.js"></script>
     <script src="js/Controller.js"></script>
-  </body>
+</body>
+
 </html>

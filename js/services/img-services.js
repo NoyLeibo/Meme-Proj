@@ -28,7 +28,7 @@ var gElCtx = gElCanvas.getContext('2d')
 var gMeme = {
   selectedImgId: 5,
   selectedLineIdx: 0,
-  lines: [{ txt: "Noy is rock", size: 20, color: "red" }],
+  lines: [{ txt: "CAN'T GET FIRED", size: 30, color: "white" }],
 };
 // var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 };
 
