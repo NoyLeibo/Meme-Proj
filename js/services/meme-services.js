@@ -67,7 +67,7 @@ function loadImageFromInput(ev, onImageReady) {
     reader.readAsDataURL(ev.target.files[0])   
 }
 
-function onUploadImg() {
+function uploadImg() {
     // Gets the image from the canvas
     const imgDataUrl = gElCanvas.toDataURL('image/jpeg') 
 

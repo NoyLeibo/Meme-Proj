@@ -19,7 +19,7 @@ function onAddEmoji(elEmoji){
 }
 
 function onUploadImg() {
-    UploadImg()
+    uploadImg()
 }
 
 function onDownloadImg(elLink) {
