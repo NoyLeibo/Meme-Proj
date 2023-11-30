@@ -18,23 +18,24 @@
   margin: 0;
 }
 
-#file-upload, img.plus-btn, img.trash-btn{
+#file-upload,
+img.plus-btn,
+img.trash-btn {
   background-color: transparent;
   border-style: none;
   margin: 5px;
 }
 
 img.plus-btn {
-
-    background-color: rgb(0, 255, 72);
+  background-color: rgb(0, 255, 72);
 }
 img.trash-btn {
-    background-color: rgb(255, 59, 59);
+  background-color: rgb(255, 59, 59);
 }
 
 #file-upload,
 .upload {
-    width: 50px;
+  width: 50px;
   background-color: rgb(82, 186, 224);
 }
 
@@ -45,7 +46,7 @@ img.trash-btn {
   text-align: center;
   font-size: 20px;
   font-family: poppinsRegular;
-  font-weight: bold; 
+  font-weight: bold;
 }
 
 .meme canvas {
@@ -90,35 +91,24 @@ img.trash-btn {
 }
 
 .btn {
-    position: relative;
-    display: inline-block;
-    width: 215px; /* Set the desired width */
-    height: 53px; /* Set the desired height */
-    opacity: 1.00;
-    padding: 10px; /* Adjust padding as needed */
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-family: poppinsRegular;
-    font-size: 21px;
+  position: relative;
+  display: inline-block;
+  width: 215px; /* Set the desired width */
+  height: 53px; /* Set the desired height */
+  opacity: 1;
+  padding: 10px; /* Adjust padding as needed */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-family: poppinsRegular;
+  font-size: 21px;
 }
 
-a.btn.download{
-    background: url('/imgs/download-bar.png') no-repeat;
-}
-
-a.btn.share{
-    background: url('/imgs/Share-Bar.png') no-repeat;
-}
-
-  .img.download-emoji {
-    position: absolute;
-    top: 50%;
-    left: 5px; /* Adjust as needed */
-    transform: translate(0%, -50%);
-    width: 20px; /* Adjust as needed */
-    height: auto;
-}
-
-a.btn.download, a.btn.share{
+.img.download-emoji {
+  position: absolute;
+  top: 50%;
+  left: 5px; /* Adjust as needed */
+  transform: translate(0%, -50%);
+  width: 20px; /* Adjust as needed */
+  height: auto;
 }
