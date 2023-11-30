@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>my-meme</title>
-    <script src="https://kit.fontawesome.com/66e93cc52e.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/66e93cc52e.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -33,24 +36,47 @@
         <input type="text" id="text1" oninput="onInput(this)" maxlength="20" />
 
         <div class="buttons-undertext">
-          <input type="file" id="file-upload" name="file-upload" accept="image/*" style="display:none;"/>
-          <label onclick="onImgInput(event)" id="file-upload" for="file-upload"><img src="/imgs/upload.png" alt="" class="meme-btns upload"></label>
+          <input
+            type="file"
+            id="file-upload"
+            name="file-upload"
+            accept="image/*"
+            style="display: none"
+          />
+          <label onclick="onImgInput(event)" id="file-upload" for="file-upload"
+            ><img src="/imgs/upload.png" alt="" class="meme-btns upload"
+          /></label>
 
-          <button class="add-line" onclick="onAddLine()"><img src="/imgs/plus.png" alt="" class="meme-btns"></button>
-          <button class="remove-line" onclick="onRemoveLine()"><img src="/imgs/trash.png" alt="" class="meme-btns"></button>
+          <button class="add-line" onclick="onAddLine()">
+            <img src="/imgs/plus.png" alt="" class="meme-btns" />
+          </button>
+          <button class="remove-line" onclick="onRemoveLine()">
+            <img src="/imgs/trash.png" alt="" class="meme-btns" />
+          </button>
         </div>
+
+        <div class="text-edit-container">
+          <img src="/imgs/Rectangle text edit.png" alt="Sticker Image">
 
         <div class="sticker-container">
-          <p>👶</p>
-          <p>🤨</p>
-          <p>🤯</p>
-          <p>😐</p>
-        </div>
-        <a href="#" class="btn download" onclick="downloadImg(this)" download="my-img.jpg">Download</a>
+          <img src="/imgs/Rectangle%203%20copie.png" alt="Sticker Image">
+          <div class="emoji-overlay">
+              <img src="/imgs/Emoji1.png">
+              <img src="/imgs/Emoji2.png">
+              <img src="/imgs/Emoji3.png">
+              <img src="/imgs/Emoji4.png" >
+          </div>
+      </div>
 
-        <button class="btn share" onclick="onUploadImg()">
-            Share
-        </button>
+      <a href="#" class="btn share" onclick="onUploadImg()">
+        <img class="share-emoji" src="/imgs/downloadEmoji.png" alt="Share Emoji">
+        Share
+      </a>
+
+      <a href="#" class="btn download" onclick="downloadImg(this)" download="my-img.jpg">
+        <img class="download-emoji" src="/imgs/downloadEmoji.png" alt="Download Emoji">
+        Download
+      </a>
       </div>
     </div>
 
