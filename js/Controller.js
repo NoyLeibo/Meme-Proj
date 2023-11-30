@@ -28,3 +28,7 @@ function onRenderMeme(imgId){
 function onInput(msg){
     drawText(msg.value)
 }
+
+function onUpload(){
+    
+}
