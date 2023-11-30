@@ -2,6 +2,10 @@
 
 function onInit() {
   onRenderGallery();
+
+  resizeCanvas()
+  window.addEventListener('resize', resizeCanvas)
+
 }
 
 function onRenderGallery() {

@@ -56,7 +56,6 @@ function addEmoji(emojiSrc) {
     drawText();
 }
 
-
 function loadImageFromInput(ev, onImageReady) {
     const reader = new FileReader()
     reader.onload = function (event) {
@@ -109,4 +108,15 @@ function doUploadImg(imgDataUrl, onSuccess) {
     }
     XHR.open('POST', '//ca-upload.com/here/upload.php')
     XHR.send(formData)
+}
+
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container');
+
+    if (elContainer) {
+        // Check if the element exists before accessing its properties
+        gElCanvas.width = elContainer.clientWidth - 2;
+    } else {
+        console.error('Canvas container element not found');
+    }
 }
