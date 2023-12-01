@@ -1,5 +1,6 @@
 "use strict";
 
+const IMAGES_STORAGE_KEY = 'imagesDB'
 var gImgCount = 18; // imgs number
 var gImgs = [
   { id: 1, url: `imgs/${1}.jpg`, keywords: ["funny", "cat"] },
@@ -28,7 +29,7 @@ var gElCtx = gElCanvas.getContext('2d')
 var gMeme = {
   selectedImgId: 5,
   selectedLineIdx: 0,
-  lines: [{ txt: "CAN'T GET FIRED", size: 30, color: "white" }],
+  lines: [{ txt: "CAN'T GET FIRED", size: 30, color: "white" }, { txt: "IF YOU DONAT HAVE A JOB", size: 30, color: "white" }],
 };
 // var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 };
 

@@ -1,13 +1,20 @@
 'use strict'
 
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
+
 function coverCanvasWithImg() {
     const elImg = new Image()
 
     elImg.src = `imgs/${gMeme.selectedImgId}.jpg`
     elImg.onload = () => {
-        gElCtx .drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
+        gElCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight)
     }
     drawText()
+}
+
+function getMemes(){
+    console.log();
+    return loadFromStorage('memes')
 }
 
 function drawText() {
@@ -23,15 +30,22 @@ function drawText() {
         gElCtx.strokeStyle = gMeme.lines[0].color;
         gElCtx.font = 'bold ' + gMeme.lines[0].size + 'px poppinsRegular';
         gElCtx.textBaseline = 'middle';
-        gElCtx.fillText(gMeme.lines[0].txt, 200, 40);
-        gElCtx.strokeText(gMeme.lines[0].txt, 200, 40);
+        gElCtx.fillText(gMeme.lines[0].txt, 100, 40);
+        gElCtx.strokeText(gMeme.lines[0].txt, 100, 40);
+        gElCtx.fillText(gMeme.lines[1].txt, 100, 400);
+        gElCtx.strokeText(gMeme.lines[1].txt, 100, 400);
     };
 }
 
 function updateTxt(msg) {
     const msgCapitalize = capitalize(msg);
-    gMeme.lines[0].txt = msgCapitalize;
+    gMeme.lines[gMeme.selectedLineIdx].txt = msgCapitalize;
     drawText();
+}
+
+function changeFontSize(opperator){
+    gMeme.lines[0].size = eval(gMeme.lines[0].size + opperator + 1)
+    drawText()
 }
 
 function capitalize(txt) {
@@ -80,6 +94,25 @@ function uploadImg() {
     doUploadImg(imgDataUrl, onSuccess)
 }
 
+function mouseClick(ev) {
+    const { offsetX, offsetY, clientX, clientY } = ev
+    // console.log('offsetX:', offsetX, '\noffsetY:', offsetY)
+    // console.log('clientX:', clientX, '\nclientY:', clientY)
+    // console.log('gStars:', gStars)
+    const clickedLineIndex = gMeme.lines.findIndex(line => {
+        return offsetX >= line.txt.x && offsetX <= line.txt.x
+            && offsetY >= line.txt.y && offsetY <= line.txt.y + line.size;
+    });
+
+    if (clickedLineIndex !== -1) {
+        gMeme.selectedLineIdx = clickedLineIndex;
+        console.log('picked line')
+    } else {
+        console.log('none of picked line')
+    }
+}
+
+
 // Upload the image to a server, get back a URL 
 // call the function onSuccess when done
 function doUploadImg(imgDataUrl, onSuccess) {
@@ -120,3 +153,5 @@ function resizeCanvas() {
         console.error('Canvas container element not found');
     }
 }
+
+

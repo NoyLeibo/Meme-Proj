@@ -1,11 +1,15 @@
 "use strict";
+var gLocalMemes
+
 
 function onInit() {
   onRenderGallery();
+  gLocalMemes = getMemes()
 
+  // addListeners() להחזיר כשתרצה לתקן את התזוזה של הטקסט
+  
   resizeCanvas()
   window.addEventListener('resize', resizeCanvas)
-
 }
 
 function onRenderGallery() {
@@ -32,10 +36,10 @@ function onDownloadImg(elLink) {
 }
 
 function onImgClick(imgId) {
-    let elEditMeme = document.querySelector('.edit-meme')
-    elEditMeme.style.display = 'block'
-    let canvas = document.getElementById('canvas');
-    canvas.style.display = 'block';
+  let elEditMeme = document.querySelector('.edit-meme')
+  elEditMeme.style.display = 'block'
+  let canvas = document.getElementById('canvas');
+  canvas.style.display = 'block';
   displayGallery(imgId);
   onRenderMeme();
 }
@@ -56,4 +60,21 @@ function onImgInput(ev) {
 function renderImg(img) {
   // Draw the img on the canvas
   gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
+}
+
+function onFontSizeP(){
+  changeFontSize('+')
+}
+
+function onFontSizeM(){
+  changeFontSize('-')
+}
+
+function onSaveMeme(){
+  console.log(gLocalMemes);
+  saveToStorage(IMAGES_STORAGE_KEY, gLocalMemes.toDataURL())
+}
+
+function onMouseClick(ev){
+  mouseClick(ev)
 }

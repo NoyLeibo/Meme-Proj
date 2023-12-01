@@ -30,7 +30,7 @@
     </main>
 
     <div class="meme">
-        <canvas id="canvas"width="500px" height="500px" style="display: none;"></canvas>
+        <canvas id="canvas"width="500px" height="500px" style="display: none;" onclick="onMouseClick(event)"></canvas>
 
         <div class="edit-meme">
             <input type="text" id="text1" oninput="onInput(this)" maxlength="20" value=""/>
@@ -45,34 +45,44 @@
                     <img src="./imgs/trash.png" alt="" class="trash-btn" onclick="onRemoveLine()"/>
             </div>
 
-            <div class="text-edit-container">
-                <img src="./imgs/Rectangle text edit.png" alt="Sticker Image">
+        <div class="text-edit-container">
+            <img src="./imgs/memes/textEdit/Rectangletextedit.png" alt="Text Edit">
+            <div class="edit-text-overlay">
+                <img src="./imgs/memes/textEdit/RectangleEditBar.png" onclick="onFontSizeP()">A+
+                <img src="./imgs/memes/textEdit/RectangleEditBar.png" onclick="onFontSizeM()">A-
+                <img src="./imgs/memes/textEdit/RectangleEditBar.png">Left
+                <img src="./imgs/memes/textEdit/RectangleEditBar.png">Center
+                <img src="./imgs/memes/textEdit/RectangleEditBar.png">Right
+                <img src="./imgs/memes/textEdit/RectangleEditBar.png" onclick="onSaveMeme()">SAVE
             </div>
-
-            <div class="sticker-container">
-                <img src="./imgs/Rectangle%203%20copie.png" alt="Sticker Image">
-                <div class="emoji-overlay">
-                    <img src="./imgs/Emoji1.png" onclick="onAddEmoji(this)">
-                    <img src="./imgs/Emoji2.png" onclick="onAddEmoji(this)">
-                    <img src="./imgs/Emoji3.png" onclick="onAddEmoji(this)">
-                    <img src="./imgs/Emoji4.png" onclick="onAddEmoji(this)">
-                </div>
-            </div>
-            <div class="download-share">
-            <a href="#" class="btn share" onclick="onUploadImg()" style="background: url('./imgs/Share-Bar.png') no-repeat;">
-                <img class="share-emoji" src="./imgs/ShareEmoji.png">
-                Share
-            </a>
-
-            <a href="#" class="btn download" onclick="onDownloadImg(this)" download="my-img.jpg" style="background: url('./imgs/download-bar.png') no-repeat;">
-                <img class="download-emoji" src="./imgs/downloadEmoji.png">
-                Download
-            </a>
-          </div>
         </div>
 
+        <div class="sticker-container">
+            <img src="./imgs/memes/emojis/Rectangle%203%20copie.png" alt="Sticker Image">
+            <div class="emoji-overlay">
+                <img src="./imgs/memes/emojis/Emoji1.png" onclick="onAddEmoji(this)">
+                <img src="./imgs/memes/emojis/Emoji2.png" onclick="onAddEmoji(this)">
+                <img src="./imgs/memes/emojis/Emoji3.png" onclick="onAddEmoji(this)">
+                <img src="./imgs/memes/emojis/Emoji4.png" onclick="onAddEmoji(this)">
+            </div>
+        </div>
+        <div class="download-share">
+        <a href="#" class="btn share" onclick="onUploadImg()" style="background: url('./imgs/memes/downloaAndShare/Share-Bar.png') no-repeat;">
+            <img class="share-emoji" src="./imgs/memes/downloaAndShare/ShareEmoji.png">
+            Share
+        </a>
+
+        <a href="#" class="btn download" onclick="onDownloadImg(this)" download="my-img.jpg" style="background: url('./imgs/memes/downloaAndShare/download-bar.png') no-repeat;">
+            <img class="download-emoji" src="./imgs/memes/downloaAndShare/downloadEmoji.png">
+            Download
+        </a>
+        </div>
+    </div>
+
     <!-- <script src="js/mainCanvas.js"></script> -->
+    <script src="js/services/storage-services.js"></script>
     <script src="js/services/img-services.js"></script>
+    <script src="js/services/meme-touch-services.js"></script>
     <script src="js/services/meme-services.js"></script>
     <script src="js/Controller.js"></script>
 </body>
