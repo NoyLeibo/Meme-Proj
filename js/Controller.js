@@ -13,13 +13,11 @@ function onInit() {
 }
 
 function onRenderGallery() {
-  const imgs = getImgs();
-  let elImgs = document.querySelector(".imgs");
-  let strHtml = imgs.map((img) => {
-      return `<img onclick="onImgClick(${img.id})" src="${img.url}">`;
-    })
-    .join("");
-  elImgs.innerHTML = strHtml;
+  renderGallery()
+}
+
+function onClickAbout(){
+  renderAbout()
 }
 
 function onAddEmoji(elEmoji){
@@ -33,6 +31,10 @@ function onUploadImg() {
 function onDownloadImg(elLink) {
   const imgContent = gElCanvas.toDataURL("image/jpeg"); // image/jpeg the default format
   elLink.href = imgContent;
+}
+
+function onSerachInput(elText){
+  searchKeys(elText.value);
 }
 
 function onImgClick(imgId) {
@@ -77,4 +79,13 @@ function onSaveMeme(){
 
 function onMouseClick(ev){
   mouseClick(ev)
+}
+
+function onClickGallery(){
+  let elEditMeme = document.querySelector('.edit-meme')
+  elEditMeme.style.display = 'none'
+  let canvas = document.getElementById('canvas');
+  canvas.style.display = 'none';
+  turnOnGallery()
+
 }

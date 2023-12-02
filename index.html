@@ -1,90 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>my-meme</title>
-    <script src="https://kit.fontawesome.com/66e93cc52e.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/66e93cc52e.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/style.css" />
-</head>
+  </head>
 
-<body onload="onInit()">
-
+  <body onload="onInit()">
     <header>
-        <div class="logo-container">
-            <div class="logo">Logo<span>.</span></div>
-        </div>
-        <nav class="main-nav">
-            <a href="#">Gallery</a>
-            <a href="#">Memes</a>
-            <a href="#">About</a>
-        </nav>
+      <div class="logo-container">
+        <div class="logo">Logo<span>.</span></div>
+      </div>
+      <nav class="main-nav">
+        <a href="#" onclick="onClickGallery()">Gallery</a>
+        <a href="#">Memes</a>
+        <a href="#" onclick="onClickAbout()">About</a>
+      </nav>
     </header>
 
     <main class="main-gallery">
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search" />
-        </div>
-        <div class="imgs"></div>
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search"
+          oninput="onSerachInput(this)"
+        />
+      </div>
+      <div class="imgs"></div>
     </main>
 
     <div class="meme">
-        <canvas id="canvas"width="500px" height="500px" style="display: none;" onclick="onMouseClick(event)"></canvas>
+      <canvas
+        id="canvas"
+        width="500px"
+        height="500px"
+        style="display: none"
+        onclick="onMouseClick(event)"
+      ></canvas>
 
-        <div class="edit-meme">
-            <input type="text" id="text1" oninput="onInput(this)" maxlength="20" value=""/>
+      <div class="edit-meme">
+        <input
+          type="text"
+          id="text1"
+          oninput="onInput(this)"
+          maxlength="20"
+          value=""
+        />
 
-            <div class="buttons-undertext">
-                <input type="file" id="file-upload" name="file-upload" accept="image/*" style="display: none" />
-                <label onclick="onImgInput(event)" id="file-upload" for="file-upload">
-                    <img src="./imgs/upload.png" alt="" class="upload" />
-                </label>
+        <div class="buttons-undertext">
+          <input
+            type="file"
+            id="file-upload"
+            name="file-upload"
+            accept="image/*"
+            style="display: none"
+          />
+          <label onclick="onImgInput(event)" id="file-upload" for="file-upload">
+            <img src="./imgs/upload.png" alt="" class="upload" />
+          </label>
 
-                    <img src="./imgs/plus.png" alt="" class="plus-btn" onclick="onAddLine()" />
-                    <img src="./imgs/trash.png" alt="" class="trash-btn" onclick="onRemoveLine()"/>
-            </div>
+          <img
+            src="./imgs/plus.png"
+            alt=""
+            class="plus-btn"
+            onclick="onAddLine()"
+          />
+          <img
+            src="./imgs/trash.png"
+            alt=""
+            class="trash-btn"
+            onclick="onRemoveLine()"
+          />
+        </div>
 
         <div class="text-edit-container">
-            <img src="./imgs/memes/textEdit/Rectangletextedit.png" alt="Text Edit">
-            <div class="edit-text-overlay">
-                <img src="./imgs/memes/textEdit/RectangleEditBar.png" onclick="onFontSizeP()">A+
-                <img src="./imgs/memes/textEdit/RectangleEditBar.png" onclick="onFontSizeM()">A-
-                <img src="./imgs/memes/textEdit/RectangleEditBar.png">Left
-                <img src="./imgs/memes/textEdit/RectangleEditBar.png">Center
-                <img src="./imgs/memes/textEdit/RectangleEditBar.png">Right
-                <img src="./imgs/memes/textEdit/RectangleEditBar.png" onclick="onSaveMeme()">SAVE
-            </div>
+          <!-- <img src="./imgs/memes/textEdit/Rectangletextedit.png" alt="Text Edit"> -->
+          <div class="edit-text-overlay">
+            <button class="basic-font-btns" onclick="onFontSizeP()">
+              A+
+            </button>
+            <button class="basic-font-btns" onclick="onFontSizeM()">
+              A-
+            </button>
+            <button class="basic-font-btns" onclick="onSetLeft()">
+              Left
+            </button>
+            <button class="basic-font-btns" onclick="onSetCenter()">
+              Center
+            </button>
+            <button class="basic-font-btns" onclick="onsetRight()">
+              Right
+            </button>
+          </div>
+
+          <div class="edit-text-overlay2 flex-row">
+            <button class="big-font-btns" onclick="onSaveMeme()">
+              font
+            </button>
+            <button class="basic-font-btns" onclick="onSaveMeme()">
+              Save
+            </button>
+            <button class="basic-font-btns" onclick="onColorText()">
+              Color
+            </button>
+          </div>
+
         </div>
 
         <div class="sticker-container">
-            <img src="./imgs/memes/emojis/Rectangle%203%20copie.png" alt="Sticker Image">
-            <div class="emoji-overlay">
-                <img src="./imgs/memes/emojis/Emoji1.png" onclick="onAddEmoji(this)">
-                <img src="./imgs/memes/emojis/Emoji2.png" onclick="onAddEmoji(this)">
-                <img src="./imgs/memes/emojis/Emoji3.png" onclick="onAddEmoji(this)">
-                <img src="./imgs/memes/emojis/Emoji4.png" onclick="onAddEmoji(this)">
-            </div>
+          <img
+            src="./imgs/memes/emojis/Rectangle%203%20copie.png"
+            alt="Sticker Image"
+          />
+          <div class="emoji-overlay">
+            <img
+              src="./imgs/memes/emojis/Emoji1.png"
+              onclick="onAddEmoji(this)"
+            />
+            <img
+              src="./imgs/memes/emojis/Emoji2.png"
+              onclick="onAddEmoji(this)"
+            />
+            <img
+              src="./imgs/memes/emojis/Emoji3.png"
+              onclick="onAddEmoji(this)"
+            />
+            <img
+              src="./imgs/memes/emojis/Emoji4.png"
+              onclick="onAddEmoji(this)"
+            />
+          </div>
         </div>
         <div class="download-share">
-        <a href="#" class="btn share" onclick="onUploadImg()" style="background: url('./imgs/memes/downloaAndShare/Share-Bar.png') no-repeat;">
-            <img class="share-emoji" src="./imgs/memes/downloaAndShare/ShareEmoji.png">
+          <a
+            href="#"
+            class="btn share"
+            onclick="onUploadImg()"
+            style="
+              background: url('./imgs/memes/downloaAndShare/Share-Bar.png')
+                no-repeat;
+            "
+          >
+            <img
+              class="share-emoji"
+              src="./imgs/memes/downloaAndShare/ShareEmoji.png"
+            />
             Share
-        </a>
+          </a>
 
-        <a href="#" class="btn download" onclick="onDownloadImg(this)" download="my-img.jpg" style="background: url('./imgs/memes/downloaAndShare/download-bar.png') no-repeat;">
-            <img class="download-emoji" src="./imgs/memes/downloaAndShare/downloadEmoji.png">
+          <a
+            href="#"
+            class="btn download"
+            onclick="onDownloadImg(this)"
+            download="my-img.jpg"
+            style="
+              background: url('./imgs/memes/downloaAndShare/download-bar.png')
+                no-repeat;
+            "
+          >
+            <img
+              class="download-emoji"
+              src="./imgs/memes/downloaAndShare/downloadEmoji.png"
+            />
             Download
-        </a>
+          </a>
         </div>
+      </div>
     </div>
-
+    <footer>@Made by NoyLeibo</footer>
     <!-- <script src="js/mainCanvas.js"></script> -->
     <script src="js/services/storage-services.js"></script>
     <script src="js/services/img-services.js"></script>
     <script src="js/services/meme-touch-services.js"></script>
     <script src="js/services/meme-services.js"></script>
     <script src="js/Controller.js"></script>
-</body>
-
+  </body>
 </html>

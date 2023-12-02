@@ -4,12 +4,19 @@
   display: flex;
   overflow: hidden;
   position: relative;
+  justify-content: space-evenly
 }
 
 .edit-meme {
-  display: grid;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   display: none;
+  border-radius: 50px;
+  background-color: #383b42;
+  width: 528px;
+  height: 549px;
 }
 
 .meme-btns {
@@ -55,13 +62,6 @@ img.trash-btn {
   max-width: 100%; /* Set a maximum width */
   max-height: 100%; /* Set a maximum height */
   display: block;
-}
-
-.meme .edit-meme {
-  border-radius: 50px;
-  background-color: #383b42;
-  width: 528px;
-  height: 549px;
 }
 
 .sticker-container {
@@ -110,4 +110,43 @@ img.trash-btn {
   transform: translate(0%, -50%);
   width: 20px; /* Adjust as needed */
   height: auto;
+}
+.download-share{
+  display: flex;
+}
+
+.basic-font-btns{
+  background-color: white;
+  width: 57px;
+  height: 53px;
+  border-radius: 20%;
+  border: 0;
+}
+
+.big-font-btns{
+  background-color: white;
+  width: 238px;
+  height: 53px;
+  border-radius: 15px;
+  border: 0;
+}
+
+/* .edit-meme{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+
+.text-edit-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 447px;
+  height: 153px;
+  align-items: center;
+  background-color: rgb(52, 206, 196);
+}
+
+.edit-text-overlay{
+  border-radius: 25px;
 }

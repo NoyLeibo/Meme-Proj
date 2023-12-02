@@ -13,7 +13,7 @@ function coverCanvasWithImg() {
 }
 
 function getMemes(){
-    console.log();
+    // console.log();
     return loadFromStorage('memes')
 }
 
@@ -28,7 +28,7 @@ function drawText() {
         gElCtx.beginPath();
         gElCtx.lineWidth = 2;
         gElCtx.strokeStyle = gMeme.lines[0].color;
-        gElCtx.font = 'bold ' + gMeme.lines[0].size + 'px poppinsRegular';
+        gElCtx.font = 'bold ' + gMeme.lines[gMeme.selectedLineIdx].size + 'px poppinsRegular';
         gElCtx.textBaseline = 'middle';
         gElCtx.fillText(gMeme.lines[0].txt, 100, 40);
         gElCtx.strokeText(gMeme.lines[0].txt, 100, 40);
@@ -44,7 +44,7 @@ function updateTxt(msg) {
 }
 
 function changeFontSize(opperator){
-    gMeme.lines[0].size = eval(gMeme.lines[0].size + opperator + 1)
+    gMeme.lines[gMeme.selectedLineIdx].size = eval(gMeme.lines[gMeme.selectedLineIdx].size + opperator + 1)
     drawText()
 }
 
@@ -96,14 +96,14 @@ function uploadImg() {
 
 function mouseClick(ev) {
     const { offsetX, offsetY, clientX, clientY } = ev
-    // console.log('offsetX:', offsetX, '\noffsetY:', offsetY)
-    // console.log('clientX:', clientX, '\nclientY:', clientY)
+    console.log('offsetX:', offsetX, '\noffsetY:', offsetY)
+    console.log('clientX:', clientX, '\nclientY:', clientY)
     // console.log('gStars:', gStars)
     const clickedLineIndex = gMeme.lines.findIndex(line => {
-        return offsetX >= line.txt.x && offsetX <= line.txt.x
+        return offsetX >= line.txt.x && offsetX <= line.txt.x + 50
             && offsetY >= line.txt.y && offsetY <= line.txt.y + line.size;
     });
-
+    console.log(clickedLineIndex);
     if (clickedLineIndex !== -1) {
         gMeme.selectedLineIdx = clickedLineIndex;
         console.log('picked line')
