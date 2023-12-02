@@ -2,18 +2,15 @@
 var gStartPos
 
 function addListeners() {
-    addMouseListeners()
-    addTouchListeners()
-    //Listen for resize ev
+    addMouseListeners();
+    addTouchListeners();
     window.addEventListener('resize', () => {
-        resizeCanvas()
-        //Calc the center of the canvas
-        const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
-        //Create the circle in the center
-        createCircle(center)
-        renderCanvas()
-    })
-}
+      resizeCanvas();
+      const center = { x: gElCanvas.width / 2, y: gElCanvas.height / 2 };
+      createCircle(center);
+      renderCanvas();
+    });
+  }
 
 function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)

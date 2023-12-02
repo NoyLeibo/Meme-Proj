@@ -1,10 +1,9 @@
 .meme {
-  /* display: none; display none if you need */
   border-radius: 50px;
   display: flex;
   overflow: hidden;
   position: relative;
-  justify-content: space-evenly
+  justify-content: space-evenly;
 }
 
 .edit-meme {
@@ -12,7 +11,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  display: none;
   border-radius: 50px;
   background-color: #383b42;
   width: 528px;
@@ -36,6 +34,7 @@ img.trash-btn {
 img.plus-btn {
   background-color: rgb(0, 255, 72);
 }
+
 img.trash-btn {
   background-color: rgb(255, 59, 59);
 }
@@ -59,9 +58,8 @@ img.trash-btn {
 .meme canvas {
   background-color: #383b42;
   border-radius: 50px;
-  max-width: 100%; /* Set a maximum width */
-  max-height: 100%; /* Set a maximum height */
-  display: block;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .sticker-container {
@@ -84,18 +82,18 @@ img.trash-btn {
 }
 
 .emoji-overlay img {
-  width: 55px; /* Adjust the width as needed */
-  height: 55px; /* Adjust the height as needed */
-  margin: 0 10px; /* Adjust the margin as needed */
+  width: 55px;
+  height: 55px;
+  margin: 0 10px;
 }
 
 .btn {
   position: relative;
   display: inline-block;
-  width: 215px; /* Set the desired width */
-  height: 53px; /* Set the desired height */
+  width: 215px;
+  height: 53px;
   opacity: 1;
-  padding: 10px; /* Adjust padding as needed */
+  padding: 10px;
   color: white;
   text-align: center;
   text-decoration: none;
@@ -106,16 +104,17 @@ img.trash-btn {
 .img.download-emoji {
   position: absolute;
   top: 50%;
-  left: 5px; /* Adjust as needed */
+  left: 5px;
   transform: translate(0%, -50%);
-  width: 20px; /* Adjust as needed */
+  width: 20px;
   height: auto;
 }
-.download-share{
+
+.download-share {
   display: flex;
 }
 
-.basic-font-btns{
+.basic-font-btns {
   background-color: white;
   width: 57px;
   height: 53px;
@@ -123,7 +122,7 @@ img.trash-btn {
   border: 0;
 }
 
-.big-font-btns{
+.big-font-btns {
   background-color: white;
   width: 238px;
   height: 53px;
@@ -131,13 +130,7 @@ img.trash-btn {
   border: 0;
 }
 
-/* .edit-meme{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-} */
-
-.text-edit-container{
+.text-edit-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -147,6 +140,6 @@ img.trash-btn {
   background-color: rgb(52, 206, 196);
 }
 
-.edit-text-overlay{
+.edit-text-overlay {
   border-radius: 25px;
 }

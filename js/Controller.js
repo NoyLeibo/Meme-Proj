@@ -1,31 +1,36 @@
 "use strict";
-var gLocalMemes
+
+var gLocalMemes;
+var gElEditMeme = document.querySelector(".meme");
+var gCanvas = document.querySelector("canvas");
 
 
 function onInit() {
   onRenderGallery();
-  gLocalMemes = getMemes()
+  // gLocalMemes = getMemes();
 
+  gElEditMeme.classList.add("hidden");
+  gElCanvas.classList.add("hidden");
   // addListeners() להחזיר כשתרצה לתקן את התזוזה של הטקסט
-  
-  resizeCanvas()
-  window.addEventListener('resize', resizeCanvas)
+
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
 }
 
 function onRenderGallery() {
-  renderGallery()
+  renderGallery();
 }
 
-function onClickAbout(){
-  renderAbout()
+function onClickAbout() {
+  renderAbout();
 }
 
-function onAddEmoji(elEmoji){
-    addEmoji(elEmoji.src)
+function onAddEmoji(elEmoji) {
+  addEmoji(elEmoji.src);
 }
 
 function onUploadImg() {
-    uploadImg()
+  uploadImg();
 }
 
 function onDownloadImg(elLink) {
@@ -33,29 +38,31 @@ function onDownloadImg(elLink) {
   elLink.href = imgContent;
 }
 
-function onSerachInput(elText){
+function onSerachInput(elText) {
   searchKeys(elText.value);
 }
 
 function onImgClick(imgId) {
-  let elEditMeme = document.querySelector('.edit-meme')
-  elEditMeme.style.display = 'block'
-  let canvas = document.getElementById('canvas');
-  canvas.style.display = 'block';
+  console.log(gElEditMeme);
+  gElEditMeme.classList.remove("hidden");
+  console.log(gElEditMeme);
+  gCanvas.classList.remove("hidden");
+
   displayGallery(imgId);
   onRenderMeme();
 }
 
 function onRenderMeme() {
-    coverCanvasWithImg();
+  coverCanvasWithImg();
   // let elMeme = document.querySelector('.meme')
 }
 
 function onInput(msg) {
-    updateTxt(msg.value);
+  updateTxt(msg.value);
 }
 
 function onImgInput(ev) {
+  console.log(ev);
   loadImageFromInput(ev, renderImg);
 }
 
@@ -64,28 +71,27 @@ function renderImg(img) {
   gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
 }
 
-function onFontSizeP(){
-  changeFontSize('+')
+function onFontSizeP() {
+  changeFontSize("+");
 }
 
-function onFontSizeM(){
-  changeFontSize('-')
+function onFontSizeM() {
+  changeFontSize("-");
 }
 
-function onSaveMeme(){
-  console.log(gLocalMemes);
-  saveToStorage(IMAGES_STORAGE_KEY, gLocalMemes.toDataURL())
+// function onSaveMeme() {
+//   console.log(gLocalMemes);
+//   saveToStorage(IMAGES_STORAGE_KEY, gLocalMemes.toDataURL());
+// }
+
+function onMouseClick(ev) {
+  mouseClick(ev);
 }
 
-function onMouseClick(ev){
-  mouseClick(ev)
-}
-
-function onClickGallery(){
-  let elEditMeme = document.querySelector('.edit-meme')
-  elEditMeme.style.display = 'none'
-  let canvas = document.getElementById('canvas');
-  canvas.style.display = 'none';
-  turnOnGallery()
-
+function onClickGallery() {
+  console.log(gElEditMeme);
+  gElEditMeme.classList.remove("hidden");
+  console.log(gElEditMeme);
+  gCanvas.classList.remove("hidden");
+  turnOnGallery();
 }

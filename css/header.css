@@ -1,33 +1,37 @@
 header {
-    display: flex;
-    justify-content: space-around;
-    border-radius: 50px;
-    align-items: center;
-    height: 76px;
-    margin: 20px auto; /* Center the header */
-    background: linear-gradient(90deg, rgba(15,155,180,1) 0%, rgba(48,187,114,1) 50%);
+  display: flex;
+  justify-content: space-around;
+  border-radius: 50px;
+  align-items: center;
+  height: 76px;
+  margin: 20px auto;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 155, 180, 1) 0%,
+    rgba(48, 187, 114, 1) 50%
+  );
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-    font-size: 1.625rem;
-    font-family: poppinsRegular;
-    color: white;
-    text-align: center;
-    padding: 10px;
+  font-size: 1.625rem;
+  font-family: poppinsRegular;
+  color: white;
+  text-align: center;
+  padding: 10px;
 }
 
 .main-nav a {
-    font-size: 1.625rem;
-    text-decoration: none;
-    color: white;
-    padding: 10px;
+  font-size: 1.625rem;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
 }
 
-.logo-container .logo span{
-    color:black;
+.logo-container .logo span {
+  color: black;
 }

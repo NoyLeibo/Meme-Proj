@@ -17,6 +17,22 @@ function getMemes(){
     return loadFromStorage('memes')
 }
 
+function turnOnGallery() {
+    gMainGallery = true;
+    changeMainGallery();
+  }
+  
+  function turnOffGallery() {
+    gMainGallery = false;
+    changeMainGallery();
+  }
+  
+  function changeMainGallery() {
+    gElMainGallery.style.display = gMainGallery ? "block" : "none";
+    gElEditMeme.classList.toggle("hidden", gMainGallery);
+    gElCanvas.classList.toggle("hidden", gMainGallery);
+  }
+
 function drawText() {
     document.getElementById('text1').value = gMeme.lines[0].txt
 

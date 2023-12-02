@@ -22,8 +22,9 @@ var gImgs = [
   { id: 17, url: `imgs/${17}.jpg`, keywords: ["man"] },
   { id: 18, url: `imgs/${18}.jpg`, keywords: ["funny"] },
 ];
-var gKeywordSearchCount = ['funny', 'man', 'cute', 'animal', 'cat', 'baby']
-
+var gKeywordSearchCount = ['funny', 'man', 'cute', 'animal', 'cat', 'baby'];
+var gElEditMeme = document.querySelector(".edit-meme");
+var gElMainGallery = document.querySelector(".main-gallery");
 var gAboutPage = false;
 var gMainGallery = true;
 var gElCanvas = document.querySelector("canvas");
@@ -34,8 +35,10 @@ var gMeme = {
   selectedLineIdx: 0,
   lines: [
     { txt: "CAN'T GET FIRED", size: 30, color: "white" },
-    { txt: "IF YOU DONAT HAVE A JOB", size: 30, color: "white" }],
+    { txt: "IF YOU DONAT HAVE A JOB", size: 30, color: "white" }
+  ],
 };
+
 
 function getImgs() {
   return gImgs;
@@ -67,6 +70,8 @@ function renderSearchMap(imgsToShown){
 }
 
 function renderGallery() {
+  gElEditMeme.classList.remove("hidden");
+  gElCanvas.classList.remove("hidden");
   const imgs = getImgs();
   let elImgs = document.querySelector(".imgs");
   let strHtml = imgs.map((img) => {
@@ -78,26 +83,6 @@ function renderGallery() {
 
 function renderAbout(){
   turnOffGallery()
-}
-
-function turnOnGallery(){
-  gMainGallery = true
-  changeMainGallery()
-
-}
-function turnOffGallery(){
-  gMainGallery = false
-  changeMainGallery()
-}
-
-function changeMainGallery() {
-  let elEditMeme = document.querySelector(".edit-meme");
-  let elMainGallery = document.querySelector(".main-gallery");
-
-  if (gMainGallery === false){
-    elMainGallery.style.display = "none"
-    return
-  }
-  if (gMainGallery && elEditMeme.style.display === "none") elMainGallery.style.display = "block";
-
+  gElEditMeme.classList.add("hidden");
+  gElCanvas.classList.add("hidden");
 }

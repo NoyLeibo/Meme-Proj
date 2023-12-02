@@ -1,38 +1,38 @@
-.main-gallery{
-    /* display: none; display none if you need */
-    background-color: #383B42;
-    border-radius: 50px;
+.main-gallery {
+  background-color: #383b42;
+  border-radius: 50px;
 }
 
-.imgs{
-    display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-    align-items: center;
-    justify-items: center;
-    grid-auto-flow: dense;
-    gap: 20px;
-    margin: 10px;
+.imgs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: center;
+  justify-items: center;
+  grid-auto-flow: dense;
+  gap: 20px;
+  margin: 10px;
 }
 
-.imgs img{
-    width: 100%;
-    border-radius: 50px;
+.imgs img {
+  width: 100%;
+  border-radius: 50px;
 }
 
 .search-container {
-    position: relative;
-    left: 20px;
+  position: relative;
+  left: 20px;
 }
 
 .search-input {
-    margin: 10px;
-    padding: 10px 40px 10px 15px; /* Adjusted padding to accommodate the search icon */
-    width: 300px;
-    border: 1px solid #ddd;
-    border-radius: 50px;
-    outline: none;
-    font-size: 16px;
-    background: #22252C url('https://img.icons8.com/ios/50/000000/search--v1.png') no-repeat right 15px center; /* URL to your search icon */
-    background-size: 20px 20px;
-    color: white
+  margin: 10px;
+  padding: 10px 40px 10px 15px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  outline: none;
+  font-size: 16px;
+  background: #22252c url("https://img.icons8.com/ios/50/000000/search--v1.png")
+    no-repeat right 15px center;
+  background-size: 20px 20px;
+  color: white;
 }
