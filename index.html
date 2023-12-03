@@ -53,13 +53,11 @@
           maxlength="25"
           value=""
         />
-
         <div class="buttons-undertext">
           <button class="under-line" onclick="onMoveLine()"><i class="fa-solid fa-arrows-up-down fa-xl"></i></button>
           <button class="plus-line" onclick="onAddLine()"><i class="fa-regular fa-square-plus fa-xl"></i></button>
           <button class="trash-line" onclick="onRemoveLine()"><i class="fa-regular fa-trash-can fa-xl"></i></button>
         </div>
-
         <div class="text-edit-container">
           <div class="edit-text-overlay">
             <button class="basic-font-btns" onclick="onFontSizeP()">
@@ -78,11 +76,10 @@
               <i class="fa-solid fa-align-left fa-xl"></i>
             </button>
           </div>
-
           <div class="edit-text-overlay2 flex-row">
             <!-- <button class="big-font-btns" onclick="onInspectText()"> -->
               <div class="dropdown">
-                <button class="dropbtn">Inspect</button>
+                <button class="dropbtn"><i class="fa-solid fa-bars fa-lg"> Inspect</i></button>
                 <div class="dropdown-content">
                   <a href="#" onclick="onInspectText('Ariel')">Ariel</a>
                   <a href="#" onclick="onInspectText('poppinsLight')">Poppins light</a>
@@ -93,7 +90,7 @@
               </div>
               <!-- <i class="fa-solid fa-text-height fa-2xl"></i>
             </button> -->
-            <button class="basic-font-btns" onclick="onSaveMeme(this)">
+            <button class="basic-font-btns" onclick="onSaveMeme()">
               <i class="fa-solid fa-floppy-disk fa-xl"></i>
             </button>
               <label for="colorpicker" id="colorpicker">

@@ -2,35 +2,45 @@
 
 const TOUCH_EVS = ["touchstart", "touchmove", "touchend"];
 
-function coverCanvasWithImg() {
-  const elImg = new Image();
+function getMemes() {
+  return loadFromStorage(IMAGES_STORAGE_KEY);
+}
 
-  elImg.src = `imgs/${gMeme.selectedImgId}.jpg`;
+function coverCanvasWithImg() {
+  const elImg = new Image();  
+  console.log(gCurrMeme);
+  elImg.src = `imgs/${gCurrMeme.selectedImgId}.jpg`;
   elImg.onload = () => {
     gElCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight);
   };
   drawText();
 }
 
-function getMemes() {
-  return loadFromStorage(IMAGES_STORAGE_KEY);
+
+function coverCanvasWithSavedMeme(meme) {
+  const elImg = new Image();  
+  elImg.src = `imgs/${meme.selectedImgId}.jpg`;
+  elImg.onload = () => {
+    gElCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight);
+  };
+  drawText(meme);
 }
 
-function drawText() {
+function drawText(currMeme = gCurrMeme) {
   gElCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height); // מחיקת הקאנווס
   const elImg = new Image();
-  elImg.src = `imgs/${gMeme.selectedImgId}.jpg`;
+  elImg.src = `imgs/${currMeme.selectedImgId}.jpg`;
   elImg.onload = () => {
     gElCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight);
     gElCtx.beginPath();
     gElCtx.lineWidth = 2;
-    if (gMeme.lines.length <= 0) return
-    document.getElementById("text1").value = gMeme.lines[gMeme.selectedLineIdx].txt;
-    // gElCtx.strokeStyle = gMeme.lines[0].color;
+    if (currMeme.lines.length <= 0) return
+    document.getElementById("text1").value = currMeme.lines[currMeme.selectedLineIdx].txt;
+    // gElCtx.strokeStyle = currMeme.lines[0].color;
     gElCtx.strokeStyle = gSelectedColor;
-    gElCtx.font = "bold " + gMeme.lines[gMeme.selectedLineIdx].size + "px " + gSelectedInspect; // fix the selected line ++ font size
+    gElCtx.font = "bold " + currMeme.lines[currMeme.selectedLineIdx].size + "px " + gSelectedInspect; // fix the selected line ++ font size
     gElCtx.textBaseline = "middle";
-    gMeme.lines.forEach((meme) => {
+    currMeme.lines.forEach((meme) => {
       gElCtx.fillText(meme.txt, meme.x, meme.y);
       gElCtx.strokeText(meme.txt, meme.x, meme.y);
     });
@@ -40,41 +50,41 @@ function drawText() {
 function setCentering(centeringPlace){
   switch (centeringPlace) {
     case 'Left':
-      gMeme.lines[gMeme.selectedLineIdx].x = LEFT_SIDE
+      gCurrMeme.lines[gCurrMeme.selectedLineIdx].x = LEFT_SIDE
       break;
     case 'Center':
-      gMeme.lines[gMeme.selectedLineIdx].x = CENTER_SIDE
+      gCurrMeme.lines[gCurrMeme.selectedLineIdx].x = CENTER_SIDE
       break;
     case 'Right':
-      gMeme.lines[gMeme.selectedLineIdx].x = RIGHT_SIDE
+      gCurrMeme.lines[gCurrMeme.selectedLineIdx].x = RIGHT_SIDE
       break;
     }
   drawText()
 }
 
 function removeSelectedLine() {
-  gMeme.lines.splice(gMeme.selectedLineIdx, 1);
-  gMeme.selectedLineIdx = 0;
+  gCurrMeme.lines.splice(gCurrMeme.selectedLineIdx, 1);
+  gCurrMeme.selectedLineIdx = 0;
   drawText();
 }
 
 function moveToNextLine() {
-  if (gMeme.selectedLineIdx < gMeme.lines.length - 1) gMeme.selectedLineIdx++;
-  else gMeme.selectedLineIdx = 0;
+  if (gCurrMeme.selectedLineIdx < gCurrMeme.lines.length - 1) gCurrMeme.selectedLineIdx++;
+  else gCurrMeme.selectedLineIdx = 0;
   drawText();
 }
 
 function updateTxt(msg) {
   // console.log(msg);
   const msgCapitalize = capitalize(msg);
-  gMeme.lines[gMeme.selectedLineIdx].txt = msg;
+  gCurrMeme.lines[gCurrMeme.selectedLineIdx].txt = msg;
   drawText();
 }
 
 function changeFontSize(opperator) {
-  console.log(gMeme.lines);
-  gMeme.lines[gMeme.selectedLineIdx].size = eval(
-    gMeme.lines[gMeme.selectedLineIdx].size + opperator + 1
+  console.log(gCurrMeme.lines);
+  gCurrMeme.lines[gCurrMeme.selectedLineIdx].size = eval(
+    gCurrMeme.lines[gCurrMeme.selectedLineIdx].size + opperator + 1
   );
   drawText();
 }
@@ -86,16 +96,16 @@ function capitalize(txt) {
 function addEmoji(emojiSrc) {
   switch (true) {
     case emojiSrc.includes("Emoji1"):
-      gMeme.lines[0].txt += "🤪";
+      gCurrMeme.lines[0].txt += "🤪";
       break;
     case emojiSrc.includes("Emoji2"):
-      gMeme.lines[0].txt += "😄";
+      gCurrMeme.lines[0].txt += "😄";
       break;
     case emojiSrc.includes("Emoji3"):
-      gMeme.lines[0].txt += "🤯";
+      gCurrMeme.lines[0].txt += "🤯";
       break;
     case emojiSrc.includes("Emoji4"):
-      gMeme.lines[0].txt += "😣";
+      gCurrMeme.lines[0].txt += "😣";
       break;
   }
   drawText();
@@ -130,7 +140,7 @@ function mouseClick(ev) {
   console.log("offsetX:", offsetX, "\noffsetY:", offsetY);
   console.log("clientX:", clientX, "\nclientY:", clientY);
   // console.log('gStars:', gStars)
-  const clickedLineIndex = gMeme.lines.findIndex((line) => {
+  const clickedLineIndex = gCurrMeme.lines.findIndex((line) => {
     return (
       offsetX >= line.txt.x &&
       offsetX <= line.txt.x + 50 &&
@@ -140,7 +150,7 @@ function mouseClick(ev) {
   });
   console.log(clickedLineIndex);
   if (clickedLineIndex !== -1) {
-    gMeme.selectedLineIdx = clickedLineIndex;
+    gCurrMeme.selectedLineIdx = clickedLineIndex;
     console.log("picked line");
   } else {
     console.log("none of picked line");
