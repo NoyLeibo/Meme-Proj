@@ -80,15 +80,25 @@
           </div>
 
           <div class="edit-text-overlay2 flex-row">
-            <button class="big-font-btns" onclick="onInspectText()">
-              <i class="fa-solid fa-text-height fa-2xl"></i>
-            </button>
+            <!-- <button class="big-font-btns" onclick="onInspectText()"> -->
+              <div class="dropdown">
+                <button class="dropbtn">Inspect</button>
+                <div class="dropdown-content">
+                  <a href="#" onclick="onInspectText('Ariel')">Ariel</a>
+                  <a href="#" onclick="onInspectText('poppinsLight')">Poppins light</a>
+                  <a href="#" onclick="onInspectText('poppinsRegular')">Poppins regular</a>
+                  <a href="#" onclick="onInspectText('myImpact')">My impact</a>
+                  <a href="#" onclick="onInspectText('serif')">Serif</a>
+                </div>
+              </div>
+              <!-- <i class="fa-solid fa-text-height fa-2xl"></i>
+            </button> -->
             <button class="basic-font-btns" onclick="onSaveMeme(this)">
               <i class="fa-solid fa-floppy-disk fa-xl"></i>
             </button>
-            <button class="basic-font-btns" onclick="onColorText()">
-              <i class="fa-solid fa-palette fa-xl"></i>
-            </button>
+              <label for="colorpicker" id="colorpicker">
+                <input type="color" onchange="onColorText(event)" value="#000000">
+            </label>
           </div>
 
         </div>
@@ -154,7 +164,7 @@
       </div>
     </div>
     <div id="footer">
-      <p>Copyright (c) 2023 Noy Leibo. All rights reserved</p>
+      <p>Copyright (c) 2023 Noy Leibovich. All rights reserved</p>
    </div> 
     <!-- <script src="js/mainCanvas.js"></script> -->
     <script src="js/services/storage-services.js"></script>

@@ -5,6 +5,7 @@ var gElEditMeme = document.querySelector(".meme");
 var gCanvas = document.querySelector("canvas");
 var gSavedMemes = document.querySelector(".saved-memes")
 
+
 function onInit() {
   onRenderGallery();
   gLocalMemes = getMemes();
@@ -110,6 +111,15 @@ function onRemoveLine() {
   removeSelectedLine();
 }
 
+function onColorText(ev){
+  gSelectedColor = ev.target.value
+  drawText()
+}
+function onInspectText(inspect){
+  gSelectedInspect = inspect
+  drawText()
+
+}
 function onInput(msg) {
   updateTxt(msg.value);
 }

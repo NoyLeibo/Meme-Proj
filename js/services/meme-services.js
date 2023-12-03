@@ -26,8 +26,9 @@ function drawText() {
     gElCtx.lineWidth = 2;
     if (gMeme.lines.length <= 0) return
     document.getElementById("text1").value = gMeme.lines[gMeme.selectedLineIdx].txt;
-    gElCtx.strokeStyle = gMeme.lines[0].color;
-    gElCtx.font = "bold " + gMeme.lines[gMeme.selectedLineIdx].size + "px poppinsLight"; // fix the selected line ++ font size
+    // gElCtx.strokeStyle = gMeme.lines[0].color;
+    gElCtx.strokeStyle = gSelectedColor;
+    gElCtx.font = "bold " + gMeme.lines[gMeme.selectedLineIdx].size + "px " + gSelectedInspect; // fix the selected line ++ font size
     gElCtx.textBaseline = "middle";
     gMeme.lines.forEach((meme) => {
       gElCtx.fillText(meme.txt, meme.x, meme.y);

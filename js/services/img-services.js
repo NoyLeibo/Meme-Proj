@@ -36,7 +36,8 @@ var gAboutPage = false
 var gMainGallery = true
 var gMemeSaved = false
 var gMemeShown = false
-
+var gSelectedColor = 'black'
+var gSelectedInspect = 'poppinsLight'
 var gElCanvas = document.querySelector("canvas")
 var gElCtx = gElCanvas.getContext("2d")
 
@@ -44,8 +45,8 @@ var gMeme = {
   selectedImgId: 0,
   selectedLineIdx: 0,
   lines: [
-    { txt: "CAN'T GET FIRED", size: 20, color: "white", x: CENTER_SIDE, y: UP_SIDE},
-    { txt: "IF YOU DONAT HAVE A JOB", size: 20, color: "white", x: CENTER_SIDE, y: DOWN_SIDE }
+    { txt: "CAN'T GET FIRED", size: 20, color: gSelectedColor, x: CENTER_SIDE, y: UP_SIDE},
+    { txt: "IF YOU DONAT HAVE A JOB", size: 20, color: gSelectedColor, x: CENTER_SIDE, y: DOWN_SIDE }
   ],
 }
 

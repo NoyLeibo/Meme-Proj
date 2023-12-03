@@ -5,6 +5,9 @@
 @import url("./saved-memes.css");
 @import url("./memes.css");
 
+* {
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     background-color: #22252C;
