@@ -31,6 +31,16 @@
           placeholder="Search"
           oninput="onSerachInput(this)"
         />
+        <div class="dropdown">
+          <button class="dropbtn"><i class="fa-solid fa-bars fa-lg"> SEARCH</i></button>
+          <div class="dropdown-content">
+            <a href="#" class="search-item" onclick="onSerachInput('funny')">funny</a>
+            <a href="#" class="search-item" onclick="onSerachInput('man')">man</a>
+            <a href="#" class="search-item" onclick="onSerachInput('cute')">cute</a>
+            <a href="#" class="search-item" onclick="onSerachInput('animal')">animal</a>
+            <a href="#" class="search-item" onclick="onSerachInput('baby')">baby</a>
+          </div>
+        </div>
       </div>
       <div class="imgs"></div>
     </main>
@@ -44,7 +54,6 @@
         height="500px"
         onclick="onMouseClick(event)"
       ></canvas>
-
       <div class="edit-meme">
         <input
           type="text"

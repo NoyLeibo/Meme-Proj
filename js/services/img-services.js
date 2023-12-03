@@ -9,15 +9,15 @@ const IMAGES_STORAGE_KEY = "imagesDB";
 
 var gImgCount = 18; // imgs number
 var gImgs = [
-  { id: 1, url: `imgs/${1}.jpg`, keywords: ["funny", "man", "dz"] },
+  { id: 1, url: `imgs/${1}.jpg`, keywords: ["funny", "man"] },
   { id: 2, url: `imgs/${2}.jpg`, keywords: ["cute", "animal"] },
   { id: 3, url: `imgs/${3}.jpg`, keywords: ["funny", "cute","baby", "animal"] },
-  { id: 4, url: `imgs/${4}.jpg`, keywords: ["cute", "cat", "animal"] },
+  { id: 4, url: `imgs/${4}.jpg`, keywords: ["cute", "animal"] },
   { id: 5, url: `imgs/${5}.jpg`, keywords: ["funny", "cute", "baby"] },
   { id: 6, url: `imgs/${6}.jpg`, keywords: ["funny", "man"] },
   { id: 7, url: `imgs/${7}.jpg`, keywords: ["funny", "cute","baby"] },
   { id: 8, url: `imgs/${8}.jpg`, keywords: ["funny", "man"] },
-  { id: 9, url: `imgs/${9}.jpg`, keywords: ["funny","baby", 'dz'] },
+  { id: 9, url: `imgs/${9}.jpg`, keywords: ["funny","baby"] },
   { id: 10, url: `imgs/${10}.jpg`, keywords: ["funny", "man"] },
   { id: 11, url: `imgs/${11}.jpg`, keywords: ["man"] },
   { id: 12, url: `imgs/${12}.jpg`, keywords: ["man"] },
@@ -29,7 +29,7 @@ var gImgs = [
   { id: 18, url: `imgs/${18}.jpg`, keywords: ["funny"] },
 ]
 
-var gKeywordSearchCount = ['funny', 'man', 'cute', 'animal', 'cat', 'baby']
+var gKeywordSearchCount = ['funny', 'man', 'cute', 'animal', 'baby']
 var gElEditMeme = document.querySelector(".edit-meme")
 var gElMainGallery = document.querySelector(".main-gallery")
 var gAboutPage = false
@@ -58,6 +58,7 @@ function newMeme(){
   }
 }
 function searchKeys(inputKey) {
+  console.log(inputKey);
   const keySearch = gImgs.filter(function (img) {
     return img.keywords.some(function (keyword) {
       return keyword.startsWith(inputKey)

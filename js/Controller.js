@@ -36,6 +36,7 @@ function onDownloadImg(elLink) {
 }
 
 function onSerachInput(elText) {
+  if (typeof(elText.value) === 'undefined') return searchKeys(elText)
   searchKeys(elText.value);
 }
 
