@@ -8,6 +8,8 @@ var gSavedMemes = document.querySelector(".saved-memes")
 
 function onInit() {
   onRenderGallery();
+  gLocalMemes = getMemes()
+  if (!gLocalMemes || !gLocalMemes.length) gLocalMemes = []
   gElEditMeme.classList.add("hidden");
   gElCanvas.classList.add("hidden");
   gSavedMemes.classList.add("hidden");
@@ -103,6 +105,11 @@ function onClickMemes() {
   gMemeSaved = true
   gMemeShown = false
   turnOffGallery();
+  console.log(gLocalMemes);
+  if (gLocalMemes.length === 0){
+    document.querySelector(".saved-imgs").innerHTML = "You didn't save any meme yet"
+    return
+  }
   const imgs = gLocalMemes.map((dataUrl, Idx) => {
     const img = `<img src="${dataUrl[0]}" data-saved-meme-id="${Idx}" onclick="onOpenSavedMeme(this.dataset.savedMemeId)"/>`
     return img
