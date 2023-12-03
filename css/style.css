@@ -11,13 +11,18 @@ body {
     font-size: 1rem;
 }
 
-footer{
-    width: 150px;
+#footer{
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     color: white;
-    display: inline-block;
 }
 
 .hidden {
     display: none;
 }
+
+/* .edit-text-overlay {
+    display: flex;
+    justify-content: space-evenly;
+    /* Check why not work */

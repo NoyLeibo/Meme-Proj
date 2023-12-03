@@ -29,7 +29,7 @@ function onAddEmoji(elEmoji) {
   addEmoji(elEmoji.src);
 }
 
-function onUploadImg() {
+function onUploadImg() { // Uploading to facebook
   uploadImg();
 }
 
@@ -61,10 +61,13 @@ function onInput(msg) {
   updateTxt(msg.value);
 }
 
-function onImgInput(ev) {
-  console.log(ev);
-  loadImageFromInput(ev, renderImg);
+function onMoveLine(){ // moving to the next line
+  moveToNextLine()
 }
+
+// function onImgInput(ev) { // upload img to meme 
+//   loadImageFromInput(ev, renderImg);
+// }
 
 function renderImg(img) {
   // Draw the img on the canvas

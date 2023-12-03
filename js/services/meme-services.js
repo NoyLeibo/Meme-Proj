@@ -28,14 +28,14 @@ function turnOnGallery() {
   }
   
   function changeMainGallery() {
-    gElMainGallery.style.display = gMainGallery ? "block" : "none";
+    gElMainGallery.classList.toggle("block", gMainGallery);
+    gElMainGallery.classList.toggle("hidden", !gMainGallery);
     gElEditMeme.classList.toggle("hidden", gMainGallery);
     gElCanvas.classList.toggle("hidden", gMainGallery);
   }
 
 function drawText() {
-    document.getElementById('text1').value = gMeme.lines[0].txt
-
+    document.getElementById('text1').value = gMeme.lines[gMeme.selectedLineIdx].txt
     gElCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height); // מחיקת הקאנווס
     const elImg = new Image();
     elImg.src = `imgs/${gMeme.selectedImgId}.jpg`;
@@ -53,9 +53,16 @@ function drawText() {
     };
 }
 
+function moveToNextLine(){
+    if (gMeme.selectedLineIdx < gMeme.lines.length - 1) gMeme.selectedLineIdx ++
+    else gMeme.selectedLineIdx = 0
+    drawText()
+}
+
 function updateTxt(msg) {
+    console.log(msg);
     const msgCapitalize = capitalize(msg);
-    gMeme.lines[gMeme.selectedLineIdx].txt = msgCapitalize;
+    gMeme.lines[gMeme.selectedLineIdx].txt = msg;
     drawText();
 }
 
@@ -86,15 +93,15 @@ function addEmoji(emojiSrc) {
     drawText();
 }
 
-function loadImageFromInput(ev, onImageReady) {
-    const reader = new FileReader()
-    reader.onload = function (event) {
-        let img = new Image() 
-        img.src = event.target.result 
-        img.onload = () => onImageReady(img)
-    }
-    reader.readAsDataURL(ev.target.files[0])   
-}
+// function loadImageFromInput(ev, onImageReady) { // upload image
+//     const reader = new FileReader()
+//     reader.onload = function (event) {
+//         let img = new Image() 
+//         img.src = event.target.result 
+//         img.onload = () => onImageReady(img)
+//     }
+//     reader.readAsDataURL(ev.target.files[0])   
+// }
 
 function uploadImg() {
     // Gets the image from the canvas

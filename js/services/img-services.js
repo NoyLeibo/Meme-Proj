@@ -22,30 +22,29 @@ var gImgs = [
   { id: 17, url: `imgs/${17}.jpg`, keywords: ["man"] },
   { id: 18, url: `imgs/${18}.jpg`, keywords: ["funny"] },
 ];
-var gKeywordSearchCount = ['funny', 'man', 'cute', 'animal', 'cat', 'baby'];
-var gElEditMeme = document.querySelector(".edit-meme");
-var gElMainGallery = document.querySelector(".main-gallery");
-var gAboutPage = false;
-var gMainGallery = true;
-var gElCanvas = document.querySelector("canvas");
-var gElCtx = gElCanvas.getContext("2d");
+var gKeywordSearchCount = ['funny', 'man', 'cute', 'animal', 'cat', 'baby']
+var gElEditMeme = document.querySelector(".edit-meme")
+var gElMainGallery = document.querySelector(".main-gallery")
+var gAboutPage = false
+var gMainGallery = true
+var gElCanvas = document.querySelector("canvas")
+var gElCtx = gElCanvas.getContext("2d")
 
 var gMeme = {
   selectedImgId: 0,
-  selectedLineIdx: 0,
+  selectedLineIdx: 1,
   lines: [
     { txt: "CAN'T GET FIRED", size: 30, color: "white" },
     { txt: "IF YOU DONAT HAVE A JOB", size: 30, color: "white" }
   ],
-};
-
+}
 
 function getImgs() {
-  return gImgs;
+  return gImgs
 }
 
 function displayGallery(imgId) {
-  gMeme.selectedImgId = imgId;
+  gMeme.selectedImgId = imgId
   turnOffGallery()
 }
 
@@ -70,19 +69,19 @@ function renderSearchMap(imgsToShown){
 }
 
 function renderGallery() {
-  gElEditMeme.classList.remove("hidden");
-  gElCanvas.classList.remove("hidden");
-  const imgs = getImgs();
-  let elImgs = document.querySelector(".imgs");
+  gElEditMeme.classList.remove("hidden")
+  gElCanvas.classList.remove("hidden")
+  const imgs = getImgs()
+  let elImgs = document.querySelector(".imgs")
   let strHtml = imgs.map((img) => {
-      return `<img onclick="onImgClick(${img.id})" src="${img.url}">`;
+      return `<img onclick="onImgClick(${img.id})" src="${img.url}">`
     })
-    .join("");
-  elImgs.innerHTML = strHtml;
+    .join("")
+  elImgs.innerHTML = strHtml
 }
 
 function renderAbout(){
   turnOffGallery()
-  gElEditMeme.classList.add("hidden");
-  gElCanvas.classList.add("hidden");
+  gElEditMeme.classList.add("hidden")
+  gElCanvas.classList.add("hidden")
 }

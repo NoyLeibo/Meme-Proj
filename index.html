@@ -48,38 +48,17 @@
           type="text"
           id="text1"
           oninput="onInput(this)"
-          maxlength="20"
+          maxlength="25"
           value=""
         />
 
         <div class="buttons-undertext">
-          <input
-            type="file"
-            id="file-upload"
-            name="file-upload"
-            accept="image/*"
-            style="display: none"
-          />
-          <label onclick="onImgInput(event)" id="file-upload" for="file-upload">
-            <img src="./imgs/upload.png" alt="" class="upload" />
-          </label>
-
-          <img
-            src="./imgs/plus.png"
-            alt=""
-            class="plus-btn"
-            onclick="onAddLine()"
-          />
-          <img
-            src="./imgs/trash.png"
-            alt=""
-            class="trash-btn"
-            onclick="onRemoveLine()"
-          />
+          <button class="under-line" onclick="onMoveLine()">⬆️⬇️</button>
+          <button class="plus-line" onclick="onAddLine()">➕</button>
+          <button class="trash-line" onclick="onRemoveLine()">🗑️</button>
         </div>
 
         <div class="text-edit-container">
-          <!-- <img src="./imgs/memes/textEdit/Rectangletextedit.png" alt="Text Edit"> -->
           <div class="edit-text-overlay">
             <button class="basic-font-btns" onclick="onFontSizeP()">
               A+
@@ -172,7 +151,9 @@
         </div>
       </div>
     </div>
-    <footer>@Made by NoyLeibo</footer>
+    <div id="footer">
+      <p>Copyright (c) 2023 Noy Leibo. All rights reserved</p>
+   </div> 
     <!-- <script src="js/mainCanvas.js"></script> -->
     <script src="js/services/storage-services.js"></script>
     <script src="js/services/img-services.js"></script>

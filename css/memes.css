@@ -23,19 +23,22 @@
   margin: 0;
 }
 
-#file-upload,
-img.plus-btn,
-img.trash-btn {
-  background-color: transparent;
-  border-style: none;
-  margin: 5px;
+.buttons-undertext button{
+  width: 60px;
+  height: 55px;
+  padding: 0px;
+  border: 0px
 }
 
-img.plus-btn {
+.under-line{
+  background-color: rgb(58, 201, 201);
+}
+
+.plus-line{
   background-color: rgb(0, 255, 72);
 }
 
-img.trash-btn {
+.trash-line{
   background-color: rgb(255, 59, 59);
 }
 
@@ -53,6 +56,7 @@ img.trash-btn {
   font-size: 20px;
   font-family: poppinsRegular;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .meme canvas {
@@ -133,7 +137,8 @@ img.trash-btn {
 .text-edit-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: stretch;
   width: 447px;
   height: 153px;
   align-items: center;
