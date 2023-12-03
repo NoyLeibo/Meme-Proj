@@ -62,9 +62,18 @@ function onOpenSavedMeme(Id){
   // displayGallery(imgId);
 }
 
+function onAddLine (){
+  addLine()
+}
+
 function onClickGallery() {
   gAboutPage = false
   turnOnGallery();
+}
+
+function toggleMenu() {
+  var menu = document.getElementById("responsiveMenu");
+  menu.classList.toggle("responsive");
 }
 
 function turnOnGallery() {

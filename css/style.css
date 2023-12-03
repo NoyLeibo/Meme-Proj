@@ -24,7 +24,7 @@ body {
 }
 
 .hidden {
-    display: none !important;
+    display: none !important; /* לעשות בדיקות אם צריך את הImportant */
 }
 
 /* .edit-text-overlay {

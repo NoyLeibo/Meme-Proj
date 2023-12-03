@@ -21,6 +21,14 @@
         <a href="#" onclick="onClickMemes()">Memes</a>
         <a href="#" onclick="onClickAbout()">About</a>
       </nav>
+
+      <div class="hamburger-icon hidden" onclick="toggleMenu()">🍔 <!-- לתקן -->
+      <nav class="main-nav" id="responsiveMenu">
+        <a href="#" onclick="onClickGallery()">Gallery</a>
+        <a href="#" onclick="onClickMemes()">Memes</a>
+        <a href="#" onclick="onClickAbout()">About</a>
+      </nav>
+    </div>
     </header>
 
     <main class="main-gallery">
@@ -32,14 +40,28 @@
           oninput="onSerachInput(this)"
         />
         <div class="dropdown">
-          <button class="dropbtn"><i class="fa-solid fa-bars fa-lg"> SEARCH</i></button>
+          <button class="dropbtn">
+            <i class="fa-solid fa-bars fa-lg"> SEARCH</i>
+          </button>
           <div class="dropdown-content">
-            <a href="#" class="search-item" onclick="onSerachInput('all')">All</a>
-            <a href="#" class="search-item" onclick="onSerachInput('funny')">Funny</a>
-            <a href="#" class="search-item" onclick="onSerachInput('man')">Man</a>
-            <a href="#" class="search-item" onclick="onSerachInput('cute')">Cute</a>
-            <a href="#" class="search-item" onclick="onSerachInput('animal')">Animal</a>
-            <a href="#" class="search-item" onclick="onSerachInput('baby')">Baby</a>
+            <a href="#" class="search-item" onclick="onSerachInput('all')"
+              >All</a
+            >
+            <a href="#" class="search-item" onclick="onSerachInput('funny')"
+              >Funny</a
+            >
+            <a href="#" class="search-item" onclick="onSerachInput('man')"
+              >Man</a
+            >
+            <a href="#" class="search-item" onclick="onSerachInput('cute')"
+              >Cute</a
+            >
+            <a href="#" class="search-item" onclick="onSerachInput('animal')"
+              >Animal</a
+            >
+            <a href="#" class="search-item" onclick="onSerachInput('baby')"
+              >Baby</a
+            >
           </div>
         </div>
       </div>
@@ -64,17 +86,25 @@
           value=""
         />
         <div class="buttons-undertext">
-          <button class="under-line" onclick="onMoveLine()"><i class="fa-solid fa-arrows-up-down fa-xl"></i></button>
-          <button class="plus-line" onclick="onAddLine()"><i class="fa-regular fa-square-plus fa-xl"></i></button>
-          <button class="trash-line" onclick="onRemoveLine()"><i class="fa-regular fa-trash-can fa-xl"></i></button>
+          <button class="under-line" onclick="onMoveLine()">
+            <i class="fa-solid fa-arrows-up-down fa-xl"></i>
+          </button>
+          <button class="plus-line" onclick="onAddLine()">
+            <i class="fa-regular fa-square-plus fa-xl"></i>
+          </button>
+          <button class="trash-line" onclick="onRemoveLine()">
+            <i class="fa-regular fa-trash-can fa-xl"></i>
+          </button>
         </div>
         <div class="text-edit-container">
           <div class="edit-text-overlay">
             <button class="basic-font-btns" onclick="onFontSizeP()">
-              <i class="fa-solid fa-font fa-xl"></i><i class="fa-solid fa-plus"></i>
+              <i class="fa-solid fa-font fa-xl"></i
+              ><i class="fa-solid fa-plus"></i>
             </button>
             <button class="basic-font-btns" onclick="onFontSizeM()">
-              <i class="fa-solid fa-font fa-xl"></i><i class="fa-solid fa-minus"></i>
+              <i class="fa-solid fa-font fa-xl"></i
+              ><i class="fa-solid fa-minus"></i>
             </button>
             <button class="basic-font-btns" onclick="onSetCentering('Right')">
               <i class="fa-solid fa-align-right fa-xl"></i>
@@ -88,26 +118,35 @@
           </div>
           <div class="edit-text-overlay2 flex-row">
             <!-- <button class="big-font-btns" onclick="onInspectText()"> -->
-              <div class="dropdown">
-                <button class="dropbtn"><i class="fa-solid fa-bars fa-lg"> Inspect</i></button>
-                <div class="dropdown-content">
-                  <a href="#" onclick="onInspectText('Ariel')">Ariel</a>
-                  <a href="#" onclick="onInspectText('poppinsLight')">Poppins light</a>
-                  <a href="#" onclick="onInspectText('poppinsRegular')">Poppins regular</a>
-                  <a href="#" onclick="onInspectText('myImpact')">My impact</a>
-                  <a href="#" onclick="onInspectText('serif')">Serif</a>
-                </div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <i class="fa-solid fa-bars fa-lg"> Inspect</i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#" onclick="onInspectText('Ariel')">Ariel</a>
+                <a href="#" onclick="onInspectText('poppinsLight')"
+                  >Poppins light</a
+                >
+                <a href="#" onclick="onInspectText('poppinsRegular')"
+                  >Poppins regular</a
+                >
+                <a href="#" onclick="onInspectText('myImpact')">My impact</a>
+                <a href="#" onclick="onInspectText('serif')">Serif</a>
               </div>
-              <!-- <i class="fa-solid fa-text-height fa-2xl"></i>
+            </div>
+            <!-- <i class="fa-solid fa-text-height fa-2xl"></i>
             </button> -->
             <button class="basic-font-btns" onclick="onSaveMeme()">
               <i class="fa-solid fa-floppy-disk fa-xl"></i>
             </button>
-              <label for="colorpicker" id="colorpicker">
-                <input type="color" onchange="onColorText(event)" value="#000000">
+            <label for="colorpicker" id="colorpicker">
+              <input
+                type="color"
+                onchange="onColorText(event)"
+                value="#000000"
+              />
             </label>
           </div>
-
         </div>
 
         <div class="sticker-container">
@@ -172,7 +211,7 @@
     </div>
     <div id="footer">
       <p>Copyright (c) 2023 Noy Leibovich. All rights reserved</p>
-   </div> 
+    </div>
     <!-- <script src="js/mainCanvas.js"></script> -->
     <script src="js/services/storage-services.js"></script>
     <script src="js/services/img-services.js"></script>

@@ -8,14 +8,12 @@ function getMemes() {
 
 function coverCanvasWithImg() {
   const elImg = new Image();  
-  console.log(gCurrMeme);
   elImg.src = `imgs/${gCurrMeme.selectedImgId}.jpg`;
   elImg.onload = () => {
     gElCtx.drawImage(elImg, 0, 0, elImg.naturalWidth, elImg.naturalHeight);
   };
   drawText();
 }
-
 
 function coverCanvasWithSavedMeme(meme) {
   const elImg = new Image();  
