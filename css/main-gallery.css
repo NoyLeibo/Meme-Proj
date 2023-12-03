@@ -1,6 +1,8 @@
 .main-gallery {
   background-color: #383b42;
   border-radius: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 .imgs {

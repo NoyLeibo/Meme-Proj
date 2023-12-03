@@ -14,11 +14,11 @@
   <body onload="onInit()">
     <header>
       <div class="logo-container">
-        <div class="logo">Logo<span>.</span></div>
+        <div class="logo">Meme generator<span>.</span></div>
       </div>
       <nav class="main-nav">
         <a href="#" onclick="onClickGallery()">Gallery</a>
-        <a href="#">Memes</a>
+        <a href="#" onclick="onClickMemes()">Memes</a>
         <a href="#" onclick="onClickAbout()">About</a>
       </nav>
     </header>
@@ -34,7 +34,9 @@
       </div>
       <div class="imgs"></div>
     </main>
-
+    <div class="saved-memes">
+      <div class="saved-imgs"></div>
+    </div>
     <div class="meme">
       <canvas
         id="canvas"
@@ -53,39 +55,39 @@
         />
 
         <div class="buttons-undertext">
-          <button class="under-line" onclick="onMoveLine()">⬆️⬇️</button>
-          <button class="plus-line" onclick="onAddLine()">➕</button>
-          <button class="trash-line" onclick="onRemoveLine()">🗑️</button>
+          <button class="under-line" onclick="onMoveLine()"><i class="fa-solid fa-arrows-up-down fa-xl"></i></button>
+          <button class="plus-line" onclick="onAddLine()"><i class="fa-regular fa-square-plus fa-xl"></i></button>
+          <button class="trash-line" onclick="onRemoveLine()"><i class="fa-regular fa-trash-can fa-xl"></i></button>
         </div>
 
         <div class="text-edit-container">
           <div class="edit-text-overlay">
             <button class="basic-font-btns" onclick="onFontSizeP()">
-              A+
+              <i class="fa-solid fa-font fa-xl"></i><i class="fa-solid fa-plus"></i>
             </button>
             <button class="basic-font-btns" onclick="onFontSizeM()">
-              A-
+              <i class="fa-solid fa-font fa-xl"></i><i class="fa-solid fa-minus"></i>
             </button>
-            <button class="basic-font-btns" onclick="onSetLeft()">
-              Left
+            <button class="basic-font-btns" onclick="onSetCentering('Right')">
+              <i class="fa-solid fa-align-right fa-xl"></i>
             </button>
-            <button class="basic-font-btns" onclick="onSetCenter()">
-              Center
+            <button class="basic-font-btns" onclick="onSetCentering('Center')">
+              <i class="fa-solid fa-align-center fa-xl"></i>
             </button>
-            <button class="basic-font-btns" onclick="onsetRight()">
-              Right
+            <button class="basic-font-btns" onclick="onSetCentering('Left')">
+              <i class="fa-solid fa-align-left fa-xl"></i>
             </button>
           </div>
 
           <div class="edit-text-overlay2 flex-row">
-            <button class="big-font-btns" onclick="onSaveMeme()">
-              font
+            <button class="big-font-btns" onclick="onInspectText()">
+              <i class="fa-solid fa-text-height fa-2xl"></i>
             </button>
-            <button class="basic-font-btns" onclick="onSaveMeme()">
-              Save
+            <button class="basic-font-btns" onclick="onSaveMeme(this)">
+              <i class="fa-solid fa-floppy-disk fa-xl"></i>
             </button>
             <button class="basic-font-btns" onclick="onColorText()">
-              Color
+              <i class="fa-solid fa-palette fa-xl"></i>
             </button>
           </div>
 
@@ -157,8 +159,8 @@
     <!-- <script src="js/mainCanvas.js"></script> -->
     <script src="js/services/storage-services.js"></script>
     <script src="js/services/img-services.js"></script>
-    <script src="js/services/meme-touch-services.js"></script>
     <script src="js/services/meme-services.js"></script>
+    <script src="js/services/meme-touch-services.js"></script>
     <script src="js/Controller.js"></script>
   </body>
 </html>

@@ -3,33 +3,32 @@
 var gLocalMemes;
 var gElEditMeme = document.querySelector(".meme");
 var gCanvas = document.querySelector("canvas");
-
+var gSavedMemes = document.querySelector(".saved-memes")
 
 function onInit() {
   onRenderGallery();
-  // gLocalMemes = getMemes();
+  gLocalMemes = getMemes();
 
+  if (!gLocalMemes || !gLocalMemes.length) gLocalMemes = [];
   gElEditMeme.classList.add("hidden");
   gElCanvas.classList.add("hidden");
-  // addListeners() להחזיר כשתרצה לתקן את התזוזה של הטקסט
+  gSavedMemes.classList.add("hidden");
 
-  resizeCanvas();
-  window.addEventListener("resize", resizeCanvas);
+  // addListeners() להחזיר כשתרצה לתקן את התזוזה של הטקסט
+  // resizeCanvas();
+  // window.addEventListener("resize", resizeCanvas);
 }
 
 function onRenderGallery() {
   renderGallery();
 }
 
-function onClickAbout() {
-  renderAbout();
-}
-
 function onAddEmoji(elEmoji) {
   addEmoji(elEmoji.src);
 }
 
-function onUploadImg() { // Uploading to facebook
+function onUploadImg() {
+  // Uploading to facebook
   uploadImg();
 }
 
@@ -43,13 +42,63 @@ function onSerachInput(elText) {
 }
 
 function onImgClick(imgId) {
-  console.log(gElEditMeme);
-  gElEditMeme.classList.remove("hidden");
-  console.log(gElEditMeme);
-  gCanvas.classList.remove("hidden");
-
+  gMemeSaved = false
+  gMemeShown = true
   displayGallery(imgId);
   onRenderMeme();
+
+  gElEditMeme.classList.remove("hidden");
+  gCanvas.classList.remove("hidden");
+}
+
+function onClickGallery() {
+  turnOnGallery();
+}
+
+function turnOnGallery() {
+  gMainGallery = true;
+  changeMainGallery();
+}
+
+function turnOffGallery() {
+  gMainGallery = false;
+  changeMainGallery();
+}
+
+function changeMainGallery() {
+  if (gMainGallery) {
+    gElMainGallery.classList.remove("hidden");
+    gElEditMeme.classList.add("hidden");
+    gElCanvas.classList.add("hidden");
+    gSavedMemes.classList.add("hidden");
+  } 
+  else if (gMemeShown) {
+    gElMainGallery.classList.add("hidden");
+    gSavedMemes.classList.add("hidden");
+    gElEditMeme.classList.remove("hidden");
+    gElCanvas.classList.remove("hidden");
+  } 
+  else if (gMemeSaved) {
+    gElMainGallery.classList.add("hidden");
+    gSavedMemes.classList.remove("hidden");
+    gElEditMeme.classList.add("hidden");
+    gElCanvas.classList.add("hidden");
+  }
+}
+
+function onClickAbout() {
+  turnOffGallery();
+}
+
+function onClickMemes() {
+  gMemeSaved = true
+  gMemeShown = false
+  turnOffGallery();
+  const imgs = gLocalMemes.map((dataUrl) => {
+    const img = `<img src="${dataUrl}"/>`
+    return img
+  }).join('')
+  document.querySelector(".saved-imgs").innerHTML = imgs;
 }
 
 function onRenderMeme() {
@@ -57,15 +106,20 @@ function onRenderMeme() {
   // let elMeme = document.querySelector('.meme')
 }
 
+function onRemoveLine() {
+  removeSelectedLine();
+}
+
 function onInput(msg) {
   updateTxt(msg.value);
 }
 
-function onMoveLine(){ // moving to the next line
-  moveToNextLine()
+function onMoveLine() {
+  // moving to the next line
+  moveToNextLine();
 }
 
-// function onImgInput(ev) { // upload img to meme 
+// function onImgInput(ev) { // upload img to meme
 //   loadImageFromInput(ev, renderImg);
 // }
 
@@ -82,19 +136,22 @@ function onFontSizeM() {
   changeFontSize("-");
 }
 
-// function onSaveMeme() {
-//   console.log(gLocalMemes);
-//   saveToStorage(IMAGES_STORAGE_KEY, gLocalMemes.toDataURL());
-// }
+function onSaveMeme() {
+  const dataUrl = gCanvas.toDataURL("image/jpeg", 1.0);
+  gLocalMemes.push(dataUrl);
+  saveToStorage(IMAGES_STORAGE_KEY, gLocalMemes);
+}
+
+function onDownloadCanvas(elLink) {
+  const dataUrl = gCanvas.toDataURL();
+  elLink.href = dataUrl;
+  elLink.download = "my-img";
+}
 
 function onMouseClick(ev) {
   mouseClick(ev);
 }
 
-function onClickGallery() {
-  console.log(gElEditMeme);
-  gElEditMeme.classList.remove("hidden");
-  console.log(gElEditMeme);
-  gCanvas.classList.remove("hidden");
-  turnOnGallery();
+function onSetCentering(centeringPlace) {
+  setCentering(centeringPlace);
 }
