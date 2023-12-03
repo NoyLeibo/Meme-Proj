@@ -40,13 +40,13 @@ var gSelectedColor = 'black'
 var gSelectedInspect = 'poppinsLight'
 var gElCanvas = document.querySelector("canvas")
 var gElCtx = gElCanvas.getContext("2d")
-
 var gMeme = newMeme()
 var gCurrMeme
 
 function getImgs() {
   return gImgs
 }
+
 function newMeme(){
   return {
     selectedImgId: 0,
@@ -57,14 +57,14 @@ function newMeme(){
     ],
   }
 }
+
 function searchKeys(inputKey) {
-  console.log(inputKey);
+  if (inputKey === 'all') return renderSearchMap(gImgs)
   const keySearch = gImgs.filter(function (img) {
     return img.keywords.some(function (keyword) {
       return keyword.startsWith(inputKey)
     })
   })
-
   if (keySearch.length > 0) renderSearchMap(keySearch)
   else renderGallery
 }
