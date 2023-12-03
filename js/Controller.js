@@ -4,7 +4,7 @@ var gLocalMemes;
 var gElEditMeme = document.querySelector(".meme");
 var gCanvas = document.querySelector("canvas");
 var gSavedMemes = document.querySelector(".saved-memes")
-
+var gAboutPage = false
 
 function onInit() {
   onRenderGallery();
@@ -63,6 +63,7 @@ function onOpenSavedMeme(Id){
 }
 
 function onClickGallery() {
+  gAboutPage = false
   turnOnGallery();
 }
 
@@ -95,13 +96,23 @@ function changeMainGallery() {
     gElEditMeme.classList.add("hidden");
     gElCanvas.classList.add("hidden");
   }
+  else if (gAboutPage) {
+    gElMainGallery.classList.add("hidden");
+    gSavedMemes.classList.add("hidden");
+    gElEditMeme.classList.add("hidden");
+    gElCanvas.classList.add("hidden");
+  }
 }
 
 function onClickAbout() {
+  gAboutPage = true
+  gMemeSaved = false
+  gMemeShown = false
   turnOffGallery();
 }
 
 function onClickMemes() {
+  gAboutPage = false
   gMemeSaved = true
   gMemeShown = false
   turnOffGallery();
