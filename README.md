@@ -14,11 +14,11 @@ Start creating and sharing your memes!
 
 **4. CSS: Brings life to the layout with responsive and visually appealing designs.**
 
-**📄 License 📄**
+## **📄 License 📄**
 
 This project is released under the my study. Feel free to use it, modify it, and distribute it as you please.
 
 
-**🌈 Let's Make Some Magic! 🌈**
+## **🌈 Let's Make Some Magic! 🌈**
 
 Dive in and let your creativity flow. We can't wait to see the hilarious, witty, and downright genius memes you'll create with Meme Magic. Happy meme-ing!
