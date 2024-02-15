@@ -1,10 +1,10 @@
-**Getting Started 🌟**
+##**Getting Started 🌟**
 
 
 Start creating and sharing your memes!
 
 
-How It Works 🛠
+##**How It Works 🛠**
 
 **1. Meme Magic utilizes cutting-edge web technologies for a seamless, user-friendly experience:**
 
