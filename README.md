@@ -1,17 +1,11 @@
 **Getting Started 🌟**
 
-To dive into the meme-making adventure, follow these simple steps:
-
-Clone this repository to your local machine.
-
-Open the index.html file in your favorite browser.
-
 Start creating and sharing your memes!
 
 
 How It Works 🛠
 
-Meme Magic utilizes cutting-edge web technologies for a seamless, user-friendly experience:
+**1. Meme Magic utilizes cutting-edge web technologies for a seamless, user-friendly experience:**
 
 JavaScript: Powers the dynamic aspects of meme creation, including image manipulation and local storage management.
 
