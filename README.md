@@ -1,5 +1,5 @@
 **Getting Started 🌟**
-To dive into the meme-making adventure, follow these simple steps:
+##To dive into the meme-making adventure, follow these simple steps:
 
 Clone this repository to your local machine.
 Open the index.html file in your favorite browser.
